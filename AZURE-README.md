@@ -1,6 +1,6 @@
 *******AZURE A LEARNING GUIDE******
-**Prepared:  Ashoka Chakravarti Marpu
-Senior Cloud Engineer**
+***Prepared:  Ashoka Chakravarti Marpu***
+**Senior Cloud Engineer**
 
  
 **What is Azure?**
@@ -26,16 +26,16 @@ Backup and recovery &Configure the monitoring
 User’s security, Configure the AD or other services    
 
 **Responsibility			 On-prem	 IaaS	      PaaS          		SaaS**
-Data Governance &rights Management	 Customer	Customer      Customer      		 Customer
-Clients Endpoints	                Customer	 Customer	Customer    		 Customer
-Account & Access Management 	        Customer	Customer	Customer    		 Customer
-Identity & directory infrastructure	Customer	Customer	Microsoft/ Customer	 Microsoft/ Customer
-Application				Customer	Customer	 Microsoft/ Customer	 Microsoft
-Network control				Customer	Customer	 Microsoft/ Customer	 Microsoft
-Operating system			Customer	 Microsoft	 Microsoft	         Microsoft
-Physical Host				Customer	 Microsoft	 Microsoft	         Microsoft
-Physical network			Customer	 Microsoft	 Microsoft	         Microsoft
-Physical datacentre			Customer	 Microsoft	 Microsoft	         Microsoft
+Data Governance &rights Management	Customer	Customer      Customer      		 Customer
+Clients Endpoints	                Customer	Customer     Customer    		 Customer
+Account & Access Management 	        Customer	Customer      Customer    		 Customer
+Identity & directory infrastructure	Customer	Customer      Microsoft/ Customer	 Microsoft/ Customer
+Application				Customer	Customer      Microsoft/ Customer	 Microsoft
+Network control				Customer	Customer      Microsoft/ Customer	 Microsoft
+Operating system			Customer	 Microsoft    Microsoft	                 Microsoft
+Physical Host				Customer	 Microsoft    Microsoft	                 Microsoft
+Physical network			Customer	 Microsoft    Microsoft	                 Microsoft
+Physical datacentre			Customer	 Microsoft    Microsoft	                 Microsoft
 				
  
 **Governance**
@@ -129,7 +129,8 @@ The scope of role assignment can be:
 	Single resource 
 	Management group level
 
-Here are some examples of what you can do with RBAC:
+**Here are some examples of what you can do with RBAC:**![image](https://github.com/acmarpu/Azure-Document/assets/62603881/67d3f87d-7998-4e53-bff1-ca1060dd716b)
+
 •	Allow one user to manage virtual machines in a subscription and another user to manage virtual networks
 •	Allow a DBA group to manage SQL databases in a subscription
 •	Allow a user to manage all resources in a resource group, such as virtual machines, websites, and subnets
