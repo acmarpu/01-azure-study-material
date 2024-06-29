@@ -1,5 +1,7 @@
-*******AZURE A LEARNING GUIDE******
-***Prepared:  Ashoka Chakravarti Marpu***
+                                                            ***AZURE A LEARNING GUIDE***
+
+
+Ashoka Chakravarti Marpu***
 **Senior Cloud Engineer**
 
  
