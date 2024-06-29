@@ -25,17 +25,17 @@ Application availability
 Backup and recovery &Configure the monitoring 
 User’s security, Configure the AD or other services    
 
-**Responsibility	On-prem	IaaS	PaaS	SaaS**
-Data Governance &rights Management	 Customer	Customer	Customer	Customer
-Clients Endpoints	Customer	Customer	Customer	Customer
-Account & Access Management 	Customer	Customer	Customer	Customer
+**Responsibility			 On-prem	 IaaS	      PaaS          		SaaS**
+Data Governance &rights Management	 Customer	Customer      Customer      		 Customer
+Clients Endpoints	                Customer	 Customer	Customer    		 Customer
+Account & Access Management 	        Customer	Customer	Customer    		 Customer
 Identity & directory infrastructure	Customer	Customer	Microsoft/ Customer	 Microsoft/ Customer
-Application	Customer	Customer	 Microsoft/ Customer	 Microsoft
-Network control	Customer	Customer	 Microsoft/ Customer	 Microsoft
-Operating system	Customer	 Microsoft	 Microsoft	 Microsoft
-Physical Host	Customer	 Microsoft	 Microsoft	 Microsoft
-Physical network	Customer	 Microsoft	 Microsoft	 Microsoft
-Physical datacentre	Customer	 Microsoft	 Microsoft	 Microsoft
+Application				Customer	Customer	 Microsoft/ Customer	 Microsoft
+Network control				Customer	Customer	 Microsoft/ Customer	 Microsoft
+Operating system			Customer	 Microsoft	 Microsoft	         Microsoft
+Physical Host				Customer	 Microsoft	 Microsoft	         Microsoft
+Physical network			Customer	 Microsoft	 Microsoft	         Microsoft
+Physical datacentre			Customer	 Microsoft	 Microsoft	         Microsoft
 				
  
 **Governance**
