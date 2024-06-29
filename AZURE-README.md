@@ -40,6 +40,8 @@ Physical datacentre			Customer	 Microsoft    Microsoft	                 Microsof
  
 **Governance**
 Governance provides mechanisms and processes to maintain control over your applications and resources in Azure. It involves planning your initiatives and setting strategic priorities. Governance in Azure is primarily implemented with two services. Azure Policy allows you to create, assign, and manage policy definitions to enforce rules for your resources. This feature keeps those resources in compliance with your corporate standards. Azure Cost Management allows you to track cloud usage and expenditures for your Azure resources and other cloud providers.
+![image](https://github.com/acmarpu/Azure-Document/assets/62603881/e804d13e-3ab9-40f1-b75a-094d2e98cc32)
+
 
 **What is Azure Subscription?**
 •	A subscription is a logical unit of Azure services that is linked to an Azure account. Each associated account has a role in a subscription. Billing for Azure services is done on a per-subscription basis.
@@ -94,6 +96,8 @@ Enterprises enrollment
 •	Enterprises admin can add or associate accounts to the enrolment, can view usage data across all accounts
 
 Organize your resources with Azure Management Groups
+![image](https://github.com/acmarpu/Azure-Document/assets/62603881/2fb6a3ec-9f1f-4914-b935-7aef55072f3e)
+
  
 Manage Subscription with Portal
 
@@ -129,8 +133,7 @@ The scope of role assignment can be:
 	Single resource 
 	Management group level
 
-**Here are some examples of what you can do with RBAC:**![image](https://github.com/acmarpu/Azure-Document/assets/62603881/67d3f87d-7998-4e53-bff1-ca1060dd716b)
-
+**Here are some examples of what you can do with RBAC:**
 •	Allow one user to manage virtual machines in a subscription and another user to manage virtual networks
 •	Allow a DBA group to manage SQL databases in a subscription
 •	Allow a user to manage all resources in a resource group, such as virtual machines, websites, and subnets
