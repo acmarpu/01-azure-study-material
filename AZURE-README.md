@@ -93,8 +93,6 @@ Enterprises enrollment
 •	Within the enterprise’s agreement customer can further subdivide the environment into department accounts and finally subscription
 •	Enterprises admin can add or associate accounts to the enrolment, can view usage data across all accounts
 
-
-
 Organize your resources with Azure Management Groups
  
 Manage Subscription with Portal
