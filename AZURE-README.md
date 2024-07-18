@@ -2,9 +2,9 @@
 
 This is the starting point to Learn Azure cloud and Azure DevOps.
 
-"if You not able view the document online.there is an option to 'Download rwa file' for downloading the 'Azure Learning Guide-Latest.pdf' document and start your journey with Microsoft Azure Cloud."
+"if You not able view the document online.please check in another browser to view document and start your cloud journey with Azure Learning Guid-Latest.pdf."
 
-Documet Link : https://github.com/acmarpu/01-Azure-Document/blob/main/Azure%20Learning%20Guid-Latest.pdf
+Azure Learning Guid-Latest Documet Link : https://github.com/acmarpu/01-Azure-Document/blob/main/Azure%20Learning%20Guid-Latest.pdf
 
 
 Happy Learning!
