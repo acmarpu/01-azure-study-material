@@ -1,10 +1,20 @@
-**Welcome to the Cloud World** 
+**Welcome to the Cloud World! 🚀**
 
-This is the starting point to Learn Azure cloud and Azure DevOps.
+If you're interested in learning about Azure services and DevOps practices, here's a quick outline to help you get started with Azure and Azure DevOps.
 
-"if You not able view the document online.please check in another browser to view document and start your cloud journey with Azure Learning Guid-Latest.pdf."
+Azure Learning Guid-Latest Documet Link : https://github.com/acmarpu/01-Azure-Document/blob/main/Azure%20Learning%20Guid-Latest.md
 
-Azure Learning Guid-Latest Documet Link : https://github.com/acmarpu/01-Azure-Document/blob/main/Azure%20Learning%20Guid-Latest.pdf
+
+
+**Learning Resources:**
+
+* Hands-On Practice: Start creating and managing resources on Azure.
+
+* Explore Azure Documentation: The official Azure Documentation provides in-depth guides and tutorials.
+
+* Azure Certifications: Consider pursuing Azure certifications such as Azure Fundamentals (AZ-900), Azure Administrator (AZ-104), and Azure DevOps Engineer (AZ-400).
+
+
 
 
 Happy Learning!
