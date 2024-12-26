@@ -33,6 +33,7 @@ Azure provides an online portal that allows users to access and manage cloud ser
 **Capabilities**
 Azure provides capabilities that are usually not included within other cloud platforms, including software as a service (SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS)
 
+=======================================================================================================================================
 
 ## Azure is Responsible for:
 
