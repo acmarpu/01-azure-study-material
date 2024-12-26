@@ -101,6 +101,9 @@ Azure handles the infrastructure level, ensuring the platform and its services (
 
 
 # Azure Subscription?
+
+An Azure subscription is a logical container that groups resources together for billing and management in Microsoft Azure and is linked to an Azure account.
+
 An Azure Subscription is a key component in Microsoft Azure's cloud service platform. It is a logical container that is used to manage resources and services in the Azure cloud. Here is a more detailed breakdown based on the points you have mentioned:
 
 
@@ -137,7 +140,7 @@ Within an Azure subscription, Azure AD is used to manage user roles and access p
 **Resource Organization:** 
 Azure subscriptions can be organized into resource groups, and each resource group can contain a set of resources that share the same lifecycle. Administrators can create multiple subscriptions for different purposes (e.g., development, testing, production) to separate concerns or manage budgets and access levels effectively.
 
-A subscription is a logical unit of Azure services that is linked to an Azure account. 
+
 
 
 **1. Azure Enterprise Agreement (EA)**
