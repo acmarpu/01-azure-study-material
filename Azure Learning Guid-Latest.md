@@ -105,26 +105,32 @@ An Azure Subscription is a key component in Microsoft Azure's cloud service plat
 
 
 **Logical Unit of Azure Services:**
+
 An Azure subscription acts as a container that holds various Azure resources such as virtual machines (VMs), databases, networking resources, and storage accounts. Each subscription is linked to an Azure account, and the resources within that subscription are governed and managed by that account.
 
 
 **Billing:** 
+
 Azure services are billed on a per-subscription basis. This means that all resources deployed under a specific subscription are grouped together for billing purposes. The subscription defines the scope of the costs, and the billing can be tracked based on usage under that subscription.
 
 
 **Access to Azure Services:** 
+
 An Azure subscription gives users access to Azure’s cloud services and the management portal (Azure Portal). This portal allows users to manage and deploy various services, monitor usage, and control resource allocation.
 
 
 **Container for Services:** 
+
 An Azure subscription is often described as a billing container for the services that are deployed within it. This includes IaaS (Infrastructure as a Service), PaaS (Platform as a Service), SaaS (Software as a Service) offerings, and other cloud-based resources such as virtual machines, web applications, and storage accounts.
 
 
 **Relationship with Azure Active Directory (Azure AD):** 
+
 Azure subscriptions have a trusted relationship with Azure Active Directory (Azure AD). Azure AD is a cloud-based identity and access management service, which provides authentication and authorization for users, services, and devices. Users can sign in to the Azure Portal using their Azure AD credentials, and their roles within the subscription are defined by Azure AD.
 
 
 **Role-based Access Control (RBAC):** 
+
 Within an Azure subscription, Azure AD is used to manage user roles and access permissions through Role-Based Access Control (RBAC). This allows administrators to control who can access the resources within the subscription and what actions they can perform.
 
 
@@ -136,7 +142,6 @@ A subscription is a logical unit of Azure services that is linked to an Azure ac
 
 **1. Azure Enterprise Agreement (EA)**
 
-
 An Azure Enterprise Agreement is a licensing model that allows large organizations to purchase and manage Azure services at scale. It provides benefits such as:
 * Centralized Billing: All subscriptions under the Enterprise Agreement are billed together, offering centralized management of costs.
 * Cost Management and Reporting: Administrators can track and report on usage and spending across all subscriptions linked to the enterprise.
@@ -146,7 +151,6 @@ An Azure Enterprise Agreement is a licensing model that allows large organizatio
 
 **2. Azure Subscription Types**
 
-
 Azure supports various types of subscriptions, each serving a different purpose depending on the size, requirements, and billing preferences of the organization:
 * Pay-As-You-Go Subscription: Ideal for smaller businesses or testing environments where users pay only for the resources they use.
 * Enterprise Agreement (EA) Subscription: Designed for large organizations that need more advanced billing and management features.
@@ -155,7 +159,6 @@ Azure supports various types of subscriptions, each serving a different purpose 
 
 
 **3. Management Groups**
-
 
 To organize and manage multiple subscriptions, Azure offers Management Groups. These are containers that allow you to group multiple subscriptions under a common hierarchy. This helps you apply governance and policies at a higher level rather than at the subscription level.
 * Hierarchical Structure: You can organize subscriptions into multiple management groups to create a structure based on business units, regions, or any other criteria that suit your organization’s needs.
@@ -171,6 +174,7 @@ Managing costs is one of the most critical aspects of Azure Enterprise and Subsc
 
 
 **5. Azure Active Directory (Azure AD) Integration**
+
 AD plays a central role in Enterprise and Subscription Management by controlling access to resources across multiple subscriptions. Azure AD provides:
 * Single Sign-On (SSO): Users can sign in to all Azure services using their Azure AD credentials.
 * User and Group Management: Administrators can manage users and groups in Azure AD, assigning roles and permissions across multiple subscriptions using RBAC.
