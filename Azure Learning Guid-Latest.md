@@ -164,7 +164,6 @@ To organize and manage multiple subscriptions, Azure offers Management Groups. T
 
 **4. Billing and Cost Management**
 
-
 Managing costs is one of the most critical aspects of Azure Enterprise and Subscription Management. Azure provides several tools to help monitor and control costs:
 * Cost Management + Billing: This tool helps you track and manage Azure costs. It provides a detailed breakdown of usage, charges, and forecasted costs, and helps with budgeting and cost optimization.
 * Budgets and Alerts: Azure allows you to set budgets for each subscription or resource group and configure alerts that notify you when you approach or exceed the defined budget.
@@ -172,7 +171,7 @@ Managing costs is one of the most critical aspects of Azure Enterprise and Subsc
 
 
 **5. Azure Active Directory (Azure AD) Integration**
--- Azure AD plays a central role in Enterprise and Subscription Management by controlling access to resources across multiple subscriptions. Azure AD provides:
+AD plays a central role in Enterprise and Subscription Management by controlling access to resources across multiple subscriptions. Azure AD provides:
 * Single Sign-On (SSO): Users can sign in to all Azure services using their Azure AD credentials.
 * User and Group Management: Administrators can manage users and groups in Azure AD, assigning roles and permissions across multiple subscriptions using RBAC.
 * External Identities: Organizations can also configure access for external users (partners, vendors) via Azure AD B2B (Business-to-Business) collaboration.
