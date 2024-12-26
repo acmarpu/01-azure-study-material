@@ -84,6 +84,6 @@ The customer is responsible for things like configuring services correctly, mana
 *Azure's Responsibility:* 
 Azure handles the infrastructure level, ensuring the platform and its services (network, compute, storage, etc.) are operational and secure.
 
-![alt text](image1.png)
+!/images/[alt text](image1.png)
 
 
