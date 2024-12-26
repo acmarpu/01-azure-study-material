@@ -87,7 +87,7 @@ Azure handles the infrastructure level, ensuring the platform and its services (
 ![alt text](images/image1.png)
 
 
-**Governance**
+# Governance
 
 
 * Governance in Azure is one aspect of Azure Management
@@ -135,6 +135,8 @@ A subscription is a logical unit of Azure services that is linked to an Azure ac
 
 
 **1. Azure Enterprise Agreement (EA)**
+
+
 An Azure Enterprise Agreement is a licensing model that allows large organizations to purchase and manage Azure services at scale. It provides benefits such as:
 * Centralized Billing: All subscriptions under the Enterprise Agreement are billed together, offering centralized management of costs.
 * Cost Management and Reporting: Administrators can track and report on usage and spending across all subscriptions linked to the enterprise.
@@ -143,6 +145,8 @@ An Azure Enterprise Agreement is a licensing model that allows large organizatio
 
 
 **2. Azure Subscription Types**
+
+
 Azure supports various types of subscriptions, each serving a different purpose depending on the size, requirements, and billing preferences of the organization:
 * Pay-As-You-Go Subscription: Ideal for smaller businesses or testing environments where users pay only for the resources they use.
 * Enterprise Agreement (EA) Subscription: Designed for large organizations that need more advanced billing and management features.
@@ -151,12 +155,16 @@ Azure supports various types of subscriptions, each serving a different purpose 
 
 
 **3. Management Groups**
+
+
 To organize and manage multiple subscriptions, Azure offers Management Groups. These are containers that allow you to group multiple subscriptions under a common hierarchy. This helps you apply governance and policies at a higher level rather than at the subscription level.
 * Hierarchical Structure: You can organize subscriptions into multiple management groups to create a structure based on business units, regions, or any other criteria that suit your organization’s needs.
 * Policy Enforcement: Management groups help enforce governance policies, security controls, and compliance requirements across all subscriptions within the group.
 
 
 **4. Billing and Cost Management**
+
+
 Managing costs is one of the most critical aspects of Azure Enterprise and Subscription Management. Azure provides several tools to help monitor and control costs:
 * Cost Management + Billing: This tool helps you track and manage Azure costs. It provides a detailed breakdown of usage, charges, and forecasted costs, and helps with budgeting and cost optimization.
 * Budgets and Alerts: Azure allows you to set budgets for each subscription or resource group and configure alerts that notify you when you approach or exceed the defined budget.
@@ -164,6 +172,7 @@ Managing costs is one of the most critical aspects of Azure Enterprise and Subsc
 
 
 **5. Azure Active Directory (Azure AD) Integration**
+
 Azure AD plays a central role in Enterprise and Subscription Management by controlling access to resources across multiple subscriptions. Azure AD provides:
 * Single Sign-On (SSO): Users can sign in to all Azure services using their Azure AD credentials.
 * User and Group Management: Administrators can manage users and groups in Azure AD, assigning roles and permissions across multiple subscriptions using RBAC.
