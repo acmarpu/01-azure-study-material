@@ -172,7 +172,7 @@ Managing costs is one of the most critical aspects of Azure Enterprise and Subsc
 
 
 **5. Azure Active Directory (Azure AD) Integration**
-- Azure AD plays a central role in Enterprise and Subscription Management by controlling access to resources across multiple subscriptions. Azure AD provides:
+--- Azure AD plays a central role in Enterprise and Subscription Management by controlling access to resources across multiple subscriptions. Azure AD provides:
 * Single Sign-On (SSO): Users can sign in to all Azure services using their Azure AD credentials.
 * User and Group Management: Administrators can manage users and groups in Azure AD, assigning roles and permissions across multiple subscriptions using RBAC.
 * External Identities: Organizations can also configure access for external users (partners, vendors) via Azure AD B2B (Business-to-Business) collaboration.
