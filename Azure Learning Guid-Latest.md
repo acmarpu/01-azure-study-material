@@ -34,32 +34,46 @@ Azure provides an online portal that allows users to access and manage cloud ser
 Azure provides capabilities that are usually not included within other cloud platforms, including software as a service (SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS)
 
 
-**Azure is Responsible for**
+## Azure is Responsible for:
 
 
 In an Azure cloud environment, the responsibilities are divided between Microsoft (Azure) and the customer, following a shared responsibility model. Based on your statement, Azure is responsible for the following aspects:
 
 
 **1. Availability of the Platform (Datacenter, Connectivity, Server, Power, Cooling):**
+
+
 Azure is responsible for ensuring that the underlying infrastructure, including the physical data centers, power supply, network connectivity, servers, and cooling systems, are available and maintained. This includes ensuring the physical hardware and its supporting systems (such as power and cooling) are operational and resilient.
 
 
 **2.	Data Availability:**
+
+
 Azure is responsible for the availability of services and platforms, ensuring the infrastructure is designed for high availability, redundancy, and disaster recovery. However, customers must implement their own strategies for data availability, such as backups, replication, and failover.
 
 
 **3.	Maintenance of the Platform (Datacenter, Connectivity, Server, Storage):**
+
+
 Azure is responsible for the regular maintenance of the underlying platform, which includes updating and patching hardware, software, and infrastructure. This also includes maintaining servers, storage, network, and ensuring that the physical environment remains up-to-date and operational.
 
 
 **4.	Physical Security:**
+
+
 Azure ensures the physical security of data centres, including access control, surveillance, and protection from physical threats. This involves securing the hardware, buildings, and network connections from unauthorized physical access and ensuring that the environment is resilient to physical attacks or failures.
 
 
 **5.	Availability of the Service (VM, Storage, Network):**
+
+
 Azure ensures the availability of the services it provides, such as virtual machines (VMs), storage, and networking. This means managing the infrastructure to ensure it is available for the customer, including handling the orchestration, scaling, and maintenance of these services.
 
+
+
 **Shared Responsibility Model:**
+
+
 *Customer's Responsibility:*
 The customer is responsible for things like configuring services correctly, managing the applications they deploy, maintaining data security, and setting up proper access controls.
 
