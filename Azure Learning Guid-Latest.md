@@ -84,9 +84,9 @@ The customer is responsible for things like configuring services correctly, mana
 *Azure's Responsibility:* 
 Azure handles the infrastructure level, ensuring the platform and its services (network, compute, storage, etc.) are operational and secure.
 
-![alt text](images/image1.png)
+![alt text](../images/image1.png)
 
-
+===========================================================================================
 # Governance
 
 
@@ -96,10 +96,10 @@ Azure handles the infrastructure level, ensuring the platform and its services (
 * It involves planning your initiatives and setting strategic priorities. Governance in Azure is primarily implemented with two services. 
 * Azure Policy allows you to create, assign, and manage policy definitions to enforce rules for your resources. This feature keeps those resources in compliance with your corporate standards. 
 * Azure Cost Management allows you to track cloud usage and expenditures for your Azure resources and other cloud providers.
-![alt text](images/image2.png)
+![alt text](../images/image2.png)
 
 
-
+===========================================================================================
 # Azure Subscription?
 
 An Azure subscription is a logical container that groups resources together for billing and management in Microsoft Azure and is linked to an Azure account.
@@ -182,6 +182,85 @@ AD plays a central role in Enterprise and Subscription Management by controlling
 * Single Sign-On (SSO): Users can sign in to all Azure services using their Azure AD credentials.
 * User and Group Management: Administrators can manage users and groups in Azure AD, assigning roles and permissions across multiple subscriptions using RBAC.
 * External Identities: Organizations can also configure access for external users (partners, vendors) via Azure AD B2B (Business-to-Business) collaboration.
+
+
+===========================================================================================
+
+# What is an Azure account?
+In Microsoft Azure, an Azure account is the basic identity used to access and manage Azure services. The roles of Account Administrator, Service Administrator, and Co-Administrator pertain to different levels of management and permissions within an Azure subscription. Here is an overview of each:
+
+
+**Azure Account**
+An Azure account refers to the credentials used to access Microsoft Azure services. This account is typically tied to an email address, and it allows the user to create and manage Azure resources, such as virtual machines, databases, and storage. An Azure account can belong to an individual or an organization. It may also be associated with a Microsoft account or work or school account depending on the setup.
+
+
+**Account Administrator**
+
+The Account Administrator is the highest-level role associated with an Azure subscription. The key responsibilities of an Account Administrator include:
+
+* **Subscription Ownership:** The Account Administrator has full access to manage the subscription, including the ability to assign roles and manage billing.
+
+* **Management of Services:** While this role can manage Azure resources, its primary function is to manage the overall subscription settings and billing.
+
+* **Account Control** The Account Administrator can add and remove other users and assign them roles, including the Service Administrator and Co-Administrator roles.
+  
+**Note: There is only one Account Administrator per Azure subscription.**
+
+
+**Service Administrator**
+
+The Service Administrator is a role with specific permissions within the Azure subscription. This role is usually tied to the management of Azure services but has some limitations compared to the Account Administrator.
+Key responsibilities:
+
+* **Manage Services and Resources:** 
+
+The Service Administrator can manage resources and services (e.g., creating virtual machines, setting up networking, etc.).
+
+* **Role Restrictions:** 
+
+This role does not have full control over the subscription settings (like billing or transferring the subscription) and cannot manage other administrators (e.g., adding users or changing their roles).
+
+* **Management of Azure Subscriptions:** 
+
+In most cases, this role is associated with managing the actual Azure services and resources but with fewer permissions than the Account Administrator.
+An Azure subscription can have only one Service Administrator, and typically, this role is set to the first person who creates the subscription.
+
+
+**Co-Administrator**
+
+The Co-Administrator is a role that provides the ability to manage resources and services, similar to the Service Administrator, but with additional flexibility. Co-Administrators can perform most administrative tasks except for billing and subscription management.
+Key responsibilities:
+
+* **Manage Resources:** Co-Administrators have full access to Azure resources, like creating and configuring virtual machines, managing storage, etc.
+
+* **User Management:** A Co-Administrator can add or remove users and assign roles (except for changing the Account Administrator role).
+
+* **Similar to Service Administrator:**
+
+ In terms of permissions for managing Azure services, Co-Administrators and Service Administrators have similar access.
+A subscription can have multiple Co-Administrators, and they can manage resources without being restricted by the billing functions of the Account Administrator.
+
+
+
+===========================================================================================
+
+# Azure Resource Group
+
+An Azure resource group is a logical container that organizes related resources for an Azure solution:
+
+**Purpose**
+
+Resource groups allow you to manage resources as a single entity, based on security and lifecycle. For example, you can create, update, or delete resources as a group if they share a similar lifecycle
+
+**Resources**
+
+Resource groups can include VMs, storage accounts, virtual networks, web apps, databases, and database servers
+
+•	Associating resource groups and their resources with an Azure subscription 
+•	Using tags for metadata, documentation, automation, cost, and billing 
+•	Creating and managing roles and assigning them permissions at the resource group or subscription level
+
+
 
 
 
