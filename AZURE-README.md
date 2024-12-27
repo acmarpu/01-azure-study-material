@@ -3,9 +3,11 @@
 If you're interested in learning about Azure services and DevOps practices, here's a quick outline to help you get started with Azure and Azure DevOps.
 
 **Azure_Learning_Guide_Part-1.md [Azure, Governance, Azure Subscription, Azure AD / Microsoft Entra ID ]** 
+
 https://github.com/acmarpu/01-Azure-Document/blob/main/Azure_Learning_Guide_Part-1.md
 
 **Azure_Learning_Guide_Part-1 [Azure Networking & Storage]**
+
 https://github.com/acmarpu/01-Azure-Document/blob/main/Azure_Learning_Guide_Part-2.md
 
 
