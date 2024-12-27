@@ -86,6 +86,8 @@ Azure handles the infrastructure level, ensuring the platform and its services (
 
 ![alt text](image1.png)
 
+![Image Alt Text](../images/image1.png)
+
 ===========================================================================================
 # Governance
 
