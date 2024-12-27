@@ -431,6 +431,7 @@ Active Directory (AD) features are essential for managing users, devices, and re
 Active Directory enables centralized management of applications across an organization. It allows administrators to assign, configure, and manage access to applications based on user roles and policies. This integration simplifies application deployment and access control
 
 **2)	B2B (Business-to-Business), B2C (Business-to-Consumer) Management**
+
 *B2B:* Active Directory supports external partner and supplier access to corporate resources through Azure AD B2B. This allows businesses to securely share applications and resources with external partners while maintaining control over access.
 
 *B2C:* Azure AD B2C allows organizations to create customer-facing applications with secure authentication. It supports social logins (like Facebook, Google) and custom identity providers, allowing businesses to manage customer identity securely.
@@ -485,6 +486,7 @@ Azure Multi-Factor Authentication adds an important layer of security, requiring
 
 
 **Preferred Authentication Methods:**
+
 *Phone call:* The system calls the user’s phone and asks them to confirm their identity by pressing a number.
 
 *Text message (SMS):* A one-time passcode (OTP) is sent via SMS to the user's phone.
@@ -504,10 +506,10 @@ Microsoft Intune is a cloud-based enterprise mobility management (EMM) solution 
 It is used to integrate the on-premise directories (Active Directories) with Azure Active Directory which provides a common identity for accessing both cloud and on-premise resources. 
 
 There are various features of Azure AD Connect: 
-* 1) Password Hash Synchronization: Sign-in method that synchronizes a hashed user on-premised AD password with Azure AD. 
-* 2) Pass-through authentication: Sign-in method that provides access to users to use the same password on-premise and on the cloud. 
-* 3) Synchronization: Responsible for creating users, groups, and other objects and also validate if the identity information of your on-premise users and groups matches with the cloud. 
-* 4) Health Monitoring: A central place to view the activity and also provide monitoring. 
+* Password Hash Synchronization: Sign-in method that synchronizes a hashed user on-premised AD password with Azure AD. 
+* Pass-through authentication: Sign-in method that provides access to users to use the same password on-premise and on the cloud. 
+* Synchronization: Responsible for creating users, groups, and other objects and also validate if the identity information of your on-premise users and groups matches with the cloud. 
+* Health Monitoring: A central place to view the activity and also provide monitoring. 
 
 
 ===========================================================================================
@@ -518,10 +520,12 @@ There are various features of Azure AD Connect:
 * Managed identities are designed to eliminate the need for developers to handle credentials manually, reducing the complexity and enhancing security.
 *Use cases:* Managed identities are typically used when you have a resource (such as an Azure Virtual Machine or Azure Function) that needs to authenticate and access other Azure resources securely. Instead of managing credentials (e.g., usernames and passwords) manually, you can use a managed identity.
 
-*How it works:* When you enable a managed identity for an Azure resource, Azure creates a service principal in the Azure AD tenant that represents that resource. This service principal is used to authenticate the resource with Azure AD, and it has specific permissions associated with it.
+*How it works:* 
 
-*Managed identity types* 
-There are two types of managed identities: 
+When you enable a managed identity for an Azure resource, Azure creates a service principal in the Azure AD tenant that represents that resource. This service principal is used to authenticate the resource with Azure AD, and it has specific permissions associated with it.
+
+ 
+*There are two types of managed identities:* 
 
 **System-assigned** Some Azure services allow you to enable a managed identity directly on a service instance. When you enable a system-assigned managed identity an identity is created in Azure AD that is tied to the lifecycle of that service instance. So, when the resource is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource can use this identity to request tokens from Azure AD. 
 
@@ -534,7 +538,7 @@ There are two types of managed identities:
 A service principal in Azure is a security identity that is created to allow an application, service, or automation tool to access resources within a specific Azure Active Directory (Azure AD) tenant. It serves to authenticate and authorize services or applications to interact with Azure resources and other Microsoft services in a controlled and secure manner.
 Key Features of Service Principals:
 
-*Identity for Applications/Services:*
+**Identity for Applications/Services:**
 
 * A service principal acts as an identity for non-human entities such as applications, automated processes, and scripts. This identity is used to authenticate and authorize these services to interact with Azure resources securely.
 * Unlike user identities, a service principal is designed for service-to-service authentication, enabling applications or services to authenticate without relying on human intervention or user credentials.
@@ -543,7 +547,7 @@ Used Across Microsoft Services:
 * Service principals can also be used in integrations or automation tools (e.g., CI/CD pipelines) to interact programmatically with services.
 
 
-*Used Across Microsoft Services:*
+**Used Across Microsoft Services:**
 
 * While service principals are commonly used within Azure to access Azure resources, they are not limited to Azure. Service principals can be used to authenticate and interact with other Microsoft services, such as Microsoft Graph, Office 365, and Power BI.
 * Service principals can also be used in integrations or automation tools (e.g., CI/CD pipelines) to interact programmatically with services.
