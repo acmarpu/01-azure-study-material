@@ -336,6 +336,8 @@ The scope of role assignment can be:
 * We can grant the access for specific site 
 
 
+===========================================================================================
+
 # View Activity logs for RBAC changes 
 
 The Azure Activity log provides visibility into subscription-level events that have occurred in Azure
@@ -360,6 +362,7 @@ The Activity log has eight categories
 
 **Policy:** This contains records of all effect action operations performed by Azure policy 
 
+===========================================================================================
 
 # What is a management group? 
 
@@ -390,6 +393,159 @@ You can apply Azure RBAC to manage who has access to the management group, ensur
 
 
 
+===========================================================================================
 
+
+# Azure AD / Microsoft Entra ID
+# **Azure Active Directory is now Microsoft Entra ID**
+
+Active Directory (AD) and Azure Active Directory (AAD) are both identity management solutions from Microsoft, but they serve different purposes.
+
+**Windows Active Directory** is a directory service developed by Microsoft for Windows domain networks. It is included in most Windows Server operating systems as a set of processes and services. Initially, Active Directory was used only for centralized domain management. 
+
+**Microsoft Entra ID** is an Identity and Access Management system. It is used to grant access to your employees to specific products and services in your network. For example: Salesforce.com, twitter etc. Azure AD has some in-built support for applications in its gallery which can be added directly. 
+
+**Identity:** Something that can be authenticated before permitting access to the desired resources. 
+
+**Account:** they the data associated with the identities that defines your permission 
+
+**Azure Tenant:** 
+* An Azure Tenant is an instance of Azure Active Directory (Azure AD) that is used to manage identities, access, and resources in Microsoft Azure. It acts as a dedicated, isolated environment for an organization and is tied to a specific domain
+* The Azure Tenant is logically isolated from other tenants, meaning it cannot share user identities or resources with other tenants unless specific configurations (like Azure AD B2B or Azure AD B2C) are used.
+* A single Azure Tenant can contain multiple subscriptions
+
+**Custom domain:** 
+An Azure Custom Domain refers to the ability to configure and associate your own domain name (such as example.com) with Azure services, instead of using the default domain names provided by Azure (e.g., yourtenant.onmicrosoft.com). This is particularly useful for organizations that want to use their own branding or have a consistent domain for resources like applications, websites, or email systems.
+
+**Azure Active Directory (Azure AD) Custom Domain:**
+By default, when you create a new Azure AD tenant, it is assigned a default domain name like yourtenant.onmicrosoft.com. However, for branding and identity consistency, you can add your own custom domain (e.g., example.com) to Azure AD.
+
+**Azure DNS:**
+Azure DNS enables you to manage your domain’s DNS records. You can configure DNS zones in Azure to manage the mappings of your custom domain to various Azure resources (like virtual machines, app services, etc.).
+
+
+**AD features:** 
+Active Directory (AD) features are essential for managing users, devices, and resources within an organization. Below is an explanation of the AD features you mentioned:
+
+**1)	Application management** 
+Active Directory enables centralized management of applications across an organization. It allows administrators to assign, configure, and manage access to applications based on user roles and policies. This integration simplifies application deployment and access control
+
+**2)	B2B (Business-to-Business), B2C (Business-to-Consumer) Management**
+*B2B:* Active Directory supports external partner and supplier access to corporate resources through Azure AD B2B. This allows businesses to securely share applications and resources with external partners while maintaining control over access.
+
+*B2C:* Azure AD B2C allows organizations to create customer-facing applications with secure authentication. It supports social logins (like Facebook, Google) and custom identity providers, allowing businesses to manage customer identity securely.
+
+**3)	Conditional access** 
+Conditional Access in Azure AD allows organizations to enforce access policies based on conditions such as user location, device state, and user role. It helps ensure that only authorized users, on secure devices, can access sensitive resources. It can block or restrict access based on risk levels or user behavior.
+
+**4)	Device management** 
+Azure AD provides device management features, allowing organizations to register and manage devices that access corporate resources. Integration with Microsoft Intune provides advanced capabilities for configuring, monitoring, and securing devices, including mobile devices, laptops, and desktops.
+
+**5)	Identity management** 
+Identity management in Active Directory involves managing user identities and their associated permissions. AD allows administrators to create, update, and delete user accounts, as well as manage their access to applications, devices, and other resources. It is also responsible for managing authentication and authorization across services.
+
+**6)	Domain services** 
+Active Directory Domain Services (AD DS) is the core feature of AD that allows administrators to create and manage domains, users, computers, and organizational units (OUs). It enables centralized authentication and authorization for networked resources and is essential for maintaining a secure IT infrastructure.
+
+**7)	Privileged identity management** 
+Privileged Identity Management is a security feature that helps organizations manage, control, and monitor access to critical resources and administrative privileges. PIM allows for just-in-time (JIT) elevation of privileges, ensuring that users only have administrative rights when necessary and that all elevated access is logged and audited.
+
+* Provide just-in-time privileged access to Azure AD and Azure resources 
+* Assign time-bound access to resources using start and end dates 
+* Require approval to activate privileged roles 
+* Enforce multi-factor authentication to activate any role 
+* Use justification to understand why users activate 
+* Get notifications when privileged roles are activated 
+* Conduct access reviews to ensure users still need roles 
+* Download audit history for internal or external audit 
+* Prevents removal of the last active Global Administrator role assignment 
+
+
+**8)	Reporting and monitoring**
+Active Directory provides reporting and monitoring tools that allow administrators to track user activity, access logs, security events, and system performance.
+
+**9)	End-user self-service**
+End-user self-service features enable users to manage their own accounts, reset passwords, and update profile information without requiring IT assistance. This reduces the workload on administrators and enhances user productivity.
+
+
+===========================================================================================
+
+# MFA (Multi-Factor Authentication) on Azure 
+
+Multi-Factor Authentication (MFA) on Azure is a key security feature that helps protect your organization’s data and resources by requiring multiple forms of authentication. 
+
+*Multi-Factor Authentication (MFA)* requires users to verify their identity through at least two different factors from the following categories:
+
+*   Something you know: This is typically a password or PIN.
+*	Something you have: This could be a mobile device, smartcard, or security token.
+*	Something you are: This refers to biometrics, such as fingerprint or facial recognition.
+
+
+Azure Multi-Factor Authentication adds an important layer of security, requiring users to authenticate via two or more methods.
+
+
+**Preferred Authentication Methods:**
+*Phone call:* The system calls the user’s phone and asks them to confirm their identity by pressing a number.
+
+*Text message (SMS):* A one-time passcode (OTP) is sent via SMS to the user's phone.
+
+*Mobile app notification:* The user receives a push notification in the Microsoft Authenticator app, which they approve to authenticate.
+
+*Authenticator app verification code:* A time-sensitive passcode generated by the Authenticator app for the user to enter.
+
+
+**Microsoft Intune Overview**
+
+Microsoft Intune is a cloud-based enterprise mobility management (EMM) solution that helps organizations securely manage the mobile devices, applications, and data used by employees. Intune plays a vital role in securing and managing the increasingly diverse set of devices (e.g., smartphones, tablets, laptops) that employees use to access corporate resources, including email, files, and applications.
+
+
+**Azure AD Connect**
+
+It is used to integrate the on-premise directories (Active Directories) with Azure Active Directory which provides a common identity for accessing both cloud and on-premise resources. 
+
+There are various features of Azure AD Connect: 
+* 1) Password Hash Synchronization: Sign-in method that synchronizes a hashed user on-premised AD password with Azure AD. 
+* 2) Pass-through authentication: Sign-in method that provides access to users to use the same password on-premise and on the cloud. 
+* 3) Synchronization: Responsible for creating users, groups, and other objects and also validate if the identity information of your on-premise users and groups matches with the cloud. 
+* 4) Health Monitoring: A central place to view the activity and also provide monitoring. 
+
+
+===========================================================================================
+
+# Managed Identity:
+* Managed Identity is a feature in Azure that provides an identity for applications, services, or resources that run within the Azure environment. 
+* This identity is managed by Azure Active Directory (Azure AD), simplifying the management of credentials used by services and applications to authenticate to other Azure resources securely. 
+* Managed identities are designed to eliminate the need for developers to handle credentials manually, reducing the complexity and enhancing security.
+*Use cases:* Managed identities are typically used when you have a resource (such as an Azure Virtual Machine or Azure Function) that needs to authenticate and access other Azure resources securely. Instead of managing credentials (e.g., usernames and passwords) manually, you can use a managed identity.
+
+*How it works:* When you enable a managed identity for an Azure resource, Azure creates a service principal in the Azure AD tenant that represents that resource. This service principal is used to authenticate the resource with Azure AD, and it has specific permissions associated with it.
+
+*Managed identity types* 
+There are two types of managed identities: 
+
+**System-assigned** Some Azure services allow you to enable a managed identity directly on a service instance. When you enable a system-assigned managed identity an identity is created in Azure AD that is tied to the lifecycle of that service instance. So, when the resource is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource can use this identity to request tokens from Azure AD. 
+
+**User-assigned** You may also create a managed identity as a standalone Azure resource. You can create a user-assigned managed identity and assign it to one or more instances of an Azure service. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it. 
+
+
+
+**Service Principal in Azure**
+
+A service principal in Azure is a security identity that is created to allow an application, service, or automation tool to access resources within a specific Azure Active Directory (Azure AD) tenant. It serves to authenticate and authorize services or applications to interact with Azure resources and other Microsoft services in a controlled and secure manner.
+Key Features of Service Principals:
+
+*Identity for Applications/Services:*
+
+* A service principal acts as an identity for non-human entities such as applications, automated processes, and scripts. This identity is used to authenticate and authorize these services to interact with Azure resources securely.
+* Unlike user identities, a service principal is designed for service-to-service authentication, enabling applications or services to authenticate without relying on human intervention or user credentials.
+Used Across Microsoft Services:
+* While service principals are commonly used within Azure to access Azure resources, they are not limited to Azure. Service principals can be used to authenticate and interact with other Microsoft services, such as Microsoft Graph, Office 365, and Power BI.
+* Service principals can also be used in integrations or automation tools (e.g., CI/CD pipelines) to interact programmatically with services.
+
+
+*Used Across Microsoft Services:*
+
+* While service principals are commonly used within Azure to access Azure resources, they are not limited to Azure. Service principals can be used to authenticate and interact with other Microsoft services, such as Microsoft Graph, Office 365, and Power BI.
+* Service principals can also be used in integrations or automation tools (e.g., CI/CD pipelines) to interact programmatically with services.
 
 
