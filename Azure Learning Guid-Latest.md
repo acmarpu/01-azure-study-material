@@ -98,7 +98,7 @@ Azure handles the infrastructure level, ensuring the platform and its services (
 * It involves planning your initiatives and setting strategic priorities. Governance in Azure is primarily implemented with two services. 
 * Azure Policy allows you to create, assign, and manage policy definitions to enforce rules for your resources. This feature keeps those resources in compliance with your corporate standards. 
 * Azure Cost Management allows you to track cloud usage and expenditures for your Azure resources and other cloud providers.
-![alt text](../images/image2.png)
+![alt text](image2.png)
 
 
 ===========================================================================================
