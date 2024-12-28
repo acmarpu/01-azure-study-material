@@ -39,13 +39,14 @@ Azure Public IP Address:
 <name>.<region>.cloudapp.azure.com
 
 **Impact of VM Operations:**
-*Stop:* When a VM is stopped, the public IP is released, and the NAT (Network Address Translation) is deleted. The temporary disk is permanently deleted.
 
-*Start:* When the VM is started again, Azure will assign a Dynamic IP address. A temporary disk will be attached again.
+* **Stop:** When a VM is stopped, the public IP is released, and the NAT (Network Address Translation) is deleted. The temporary disk is permanently deleted.
 
-*Reboot:* The VM's guest OS will restart, but the VM will stay on the same physical host and retain the same public IP and temporary disk.
+* **Start:** When the VM is started again, Azure will assign a Dynamic IP address. A temporary disk will be attached again.
 
-*Delete:* Deleting the VM will permanently delete the VM, its disks, and associated public/private IP addresses, including the temporary disk.
+ **Reboot:** The VM's guest OS will restart, but the VM will stay on the same physical host and retain the same public IP and temporary disk.
+
+* **Delete:** Deleting the VM will permanently delete the VM, its disks, and associated public/private IP addresses, including the temporary disk.
 
 
 **Dynamic vs. Static Public IP:**
@@ -80,15 +81,16 @@ is a critical component in virtual machine (VM) networking in Azure, as it enabl
 * It allows organizations to manage their DNS records and domains with the same tools, APIs, and credentials that they use for other Azure services.
 * Azure DNS benefits from Microsoft’s global infrastructure, which ensures high availability, redundancy, and fast name resolution
 * Azure DNS supports the following common DNS record types:
-*A: Maps a domain to an IPv4 address.*
-*AAAA: Maps a domain to an IPv6 address.*
-*CNAME: Alias for a domain name (e.g., www pointing to example.com).*
-*MX: Mail Exchange records for routing email.*
-*NS: Nameserver records that specify authoritative DNS servers.*
-*PTR: Pointer records used for reverse DNS lookups.*
-*SOA: Start of Authority record indicating authoritative DNS servers for the domain.*
-*SRV: Service records for identifying services (e.g., for SIP or LDAP).*
-*TXT: Text records for adding arbitrary information (often for domain validation).*
+
+* A: Maps a domain to an IPv4 address.*
+* AAAA: Maps a domain to an IPv6 address.*
+* CNAME: Alias for a domain name (e.g., www pointing to example.com).*
+* MX: Mail Exchange records for routing email.*
+* NS: Nameserver records that specify authoritative DNS servers.*
+* PTR: Pointer records used for reverse DNS lookups.*
+* SOA: Start of Authority record indicating authoritative DNS servers for the domain.*
+*   SRV: Service records for identifying services (e.g., for SIP or LDAP).*
+*   TXT: Text records for adding arbitrary information (often for domain validation).*
 
 **Private DNS Zones:**
 
@@ -97,8 +99,8 @@ is a critical component in virtual machine (VM) networking in Azure, as it enabl
 * **Registration VNet:** A private zone can have one registration VNet, where records are published. The registration VNet is responsible for creating and updating DNS records in the private zone.
 * **Resolution VNets:** Private zones can have up to 10 resolution VNets. These VNets resolve DNS records from the private zone, meaning resources in these VNets can access the private DNS records.
 
-*Azure DNS can be part of a hybrid cloud solution where on-premises networks and Azure VNets work together. Azure DNS allows you to set up DNS resolution rules that ensure services across hybrid environments can communicate effectively.
-*For enterprises already using Azure Active Directory, Azure Networking, and other Azure services, Azure DNS offers a seamless experience to manage everything in one place, providing unified management and billing.
+* Azure DNS can be part of a hybrid cloud solution where on-premises networks and Azure VNets work together. Azure DNS allows you to set up DNS resolution rules that ensure services across hybrid environments can communicate effectively.
+* For enterprises already using Azure Active Directory, Azure Networking, and other Azure services, Azure DNS offers a seamless experience to manage everything in one place, providing unified management and billing.
 
 
 # **Azure Virtual Network (VNet)**
@@ -123,22 +125,22 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 * Azure supports up to 4096 IP addresses in a single VNet, though smaller subnets can be created within this range for better resource management.
 * It’s essential to plan the IP address space carefully to avoid conflicts with other VNets, on-premises networks, or other Azure services.
 
-# **Subnet**
+# 5.Subnet
 
 * A subnet is a range of IP addresses within a VNet. You can divide a VNet into multiple subnets based on your design and network architecture.
 * Subnets help segregate different types of resources for organization, security, and traffic management purposes.
 * Resources deployed in different subnets within a VNet can communicate with each other automatically, without requiring any additional configuration, unless network security controls (such as Network Security Groups - NSGs) or custom routing (using route tables) are applied.
 
-*Subnet Communication*
+**Subnet Communication**
 * VMs (and other resources) deployed in the same subnet or across different subnets in the same VNet can communicate without any extra configuration.
 * For example, if you have a VNet with multiple subnets (e.g., "web", "application", and "database"), the VMs in each subnet can directly communicate, assuming there are no restrictions (such as NSG rules) in place.
 
-*Subnet Configuration: Route Tables and NSGs*
+**Subnet Configuration: Route Tables and NSGs**
 * You can associate Route Tables and Network Security Groups (NSGs) with individual subnets:
 Route Tables: These define how traffic is directed within the VNet or between VNets and external resources.
 NSGs:  You can apply NSGs to subnets (or individual network interfaces) to control inbound and outbound traffic based on rules.
 
-*IP Addressing within Subnets*
+**IP Addressing within Subnets**
 * When defining a subnet within a VNet, certain IP addresses are reserved for Azure’s internal use and cannot be assigned to VMs or other resources:
 
 **First 3 IP addresses: These are reserved for network-related purposes, and they are:**
@@ -192,11 +194,11 @@ Association:
 
 **The rules are based on the 5-tuple, which includes:**
 
-**Protocol:** Specifies the protocol (TCP, UDP, or wildcard "*").
-**Source IP address range:** The range of IP addresses from which traffic originates.
-**Source port range:** The range of ports from which traffic originates.
-**Destination IP address range:** The range of IP addresses where traffic is going.
-**Destination port range:** The range of destination ports.
+* **Protocol:** Specifies the protocol (TCP, UDP, or wildcard "*").
+* **Source IP address range:** The range of IP addresses from which traffic originates.
+* **Source port range:** The range of ports from which traffic originates.
+* **Destination IP address range:** The range of IP addresses where traffic is going.
+* **Destination port range:** The range of destination ports.
 
 
 ![alt text](https://github.com/acmarpu/images/blob/main/image8.png)
