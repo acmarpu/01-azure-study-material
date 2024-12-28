@@ -82,15 +82,15 @@ is a critical component in virtual machine (VM) networking in Azure, as it enabl
 * Azure DNS benefits from Microsoft’s global infrastructure, which ensures high availability, redundancy, and fast name resolution
 * Azure DNS supports the following common DNS record types:
 
-* A: Maps a domain to an IPv4 address.*
-* AAAA: Maps a domain to an IPv6 address.*
-* CNAME: Alias for a domain name (e.g., www pointing to example.com).*
-* MX: Mail Exchange records for routing email.*
-* NS: Nameserver records that specify authoritative DNS servers.*
-* PTR: Pointer records used for reverse DNS lookups.*
-* SOA: Start of Authority record indicating authoritative DNS servers for the domain.*
-* SRV: Service records for identifying services (e.g., for SIP or LDAP).*
-* TXT: Text records for adding arbitrary information (often for domain validation).*
+* **A:** Maps a domain to an IPv4 address.*
+* **AAAA:** Maps a domain to an IPv6 address.*
+* **CNAME:** Alias for a domain name (e.g., www pointing to example.com).*
+* **MX:** Mail Exchange records for routing email.*
+* **NS:** Nameserver records that specify authoritative DNS servers.*
+* **PTR:** Pointer records used for reverse DNS lookups.*
+* **SOA:** Start of Authority record indicating authoritative DNS servers for the domain.*
+* **SRV:** Service records for identifying services (e.g., for SIP or LDAP).*
+* **TXT:** Text records for adding arbitrary information (often for domain validation).*
 
 
 **Private DNS Zones:**
