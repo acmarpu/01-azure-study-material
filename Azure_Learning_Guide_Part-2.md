@@ -44,7 +44,7 @@ Azure Public IP Address:
 
 * **Start:** When the VM is started again, Azure will assign a Dynamic IP address. A temporary disk will be attached again.
 
- **Reboot:** The VM's guest OS will restart, but the VM will stay on the same physical host and retain the same public IP and temporary disk.
+* **Reboot:** The VM's guest OS will restart, but the VM will stay on the same physical host and retain the same public IP and temporary disk.
 
 * **Delete:** Deleting the VM will permanently delete the VM, its disks, and associated public/private IP addresses, including the temporary disk.
 
@@ -89,8 +89,9 @@ is a critical component in virtual machine (VM) networking in Azure, as it enabl
 * NS: Nameserver records that specify authoritative DNS servers.*
 * PTR: Pointer records used for reverse DNS lookups.*
 * SOA: Start of Authority record indicating authoritative DNS servers for the domain.*
-*   SRV: Service records for identifying services (e.g., for SIP or LDAP).*
-*   TXT: Text records for adding arbitrary information (often for domain validation).*
+* SRV: Service records for identifying services (e.g., for SIP or LDAP).*
+* TXT: Text records for adding arbitrary information (often for domain validation).*
+
 
 **Private DNS Zones:**
 
@@ -232,8 +233,8 @@ Application Security Groups helps to manage the security of the Azure Virtual Ma
 Many virtual appliances are available in the azure marketplace
 
 **license can be based on**
-*Bring your own license*
-*Hourly billing*
+*   Bring your own license*
+*   Hourly billing*
 
 * Essentially a VM pre-configured software and configuration to perform a certain set of functionalities
 Common examples include firewall and load balancer
