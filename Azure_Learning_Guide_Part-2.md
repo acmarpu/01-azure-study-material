@@ -11,12 +11,10 @@ Azure Networking is a set of cloud-based services and technologies offered by Mi
 
 
 **Ingress Egress**
-
 * Data in bound to Azure 
 * There is no charge for ingress 
 
 **Egress**
-
 * Data outbound from Azure, there are charge for egress (unless using an unmetered express route connection) from azure datacenter.
 
 **IPV4 and IPV6**
