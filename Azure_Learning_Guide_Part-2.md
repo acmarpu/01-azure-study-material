@@ -144,12 +144,16 @@ NSGs:  You can apply NSGs to subnets (or individual network interfaces) to contr
 **IP Addressing within Subnets**
 * When defining a subnet within a VNet, certain IP addresses are reserved for Azure’s internal use and cannot be assigned to VMs or other resources:
 
-**First 3 IP addresses: These are reserved for network-related purposes, and they are:**
+**For every subnet in Azure, the following IP addresses are reserved**
+
 
 * **Network address (x.x.x.0):** Identifies the subnet itself.
 * **Default gateway (x.x.x.1):** This IP address is reserved for Azure’s default gateway to route traffic within the VNet and to external networks.
 * **Reserved for Azure DNS (x.x.x.2, x.x.x.3):** These IP addresses are reserved for Azure's internal DNS services, which allow the resources in the VNet to resolve domain names.
 * **Last IP address: (x.x.x.255)** is reserved as the broadcast address. It is used to send broadcast messages to all devices in the subnet (although, in Azure, broadcast traffic is typically restricted).
+
+* *Reserved IPs: 5 IPs (network address, default gateway, 2 Azure DNS addresses, and broadcast address).
+* *Usable IPs: 256 - 5 = 251 usable IP addresses.*
 
 **5.	Non-Overlapping IP Address Ranges**
 
