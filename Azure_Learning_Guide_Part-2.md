@@ -233,19 +233,79 @@ Connects with azure validated devices
 * Maximum throughput: 1.25 Gbps.
 * Supports up to 30 tunnels.
 
+===========================================================================================
+
+# Point-to -Site VPN
+* A Point-to-Site (P2S) VPN allows individual computers (or devices) to connect securely to a Azure Virtual Network (VNet) over the public internet. This is particularly useful when remote users or small offices need to connect to Azure without requiring a full-site connection, which is provided by Site-to-Site VPNs.
+* Point-to-Site VPNs in Azure typically use SSTP as the protocol for secure communication. SSTP is a SSL-based VPN that uses HTTPS over TCP port 443, which makes it easier to bypass firewalls and proxies, as it can work over standard web traffic ports.
+* Point-to-Site VPN utilizes certificate-based authentication to ensure secure connections.
+* The process involves two main types of certificates:
+* Root certificate: This is the certificate that is uploaded to Azure to authenticate the incoming connections.
+* Client certificates: These are installed on the computers or devices that will use the Point-to-Site VPN to connect to Azure. The client certificates prove the identity of the device when attempting to establish a secure connection.
 
 
 
+# Site -to -Site VPN
+
+* A Site-to-Site (S2S) VPN is a method for securely connecting an on-premises network to an Azure Virtual Network (VNet) over the internet. It is commonly used to extend an on-premises data center or network into Azure, enabling hybrid cloud architectures that allow secure communication between on-premises resources and Azure-hosted services.
+* Site-to-Site VPNs provide connectivity not only between on-premises networks and Azure VNets but also allow connecting multiple VNets within Azure. This means you can link Azure VNets that might be in different regions or subscriptions.
+* The connection between the on-premises network and Azure is established over the public internet. The traffic is encrypted using IPsec/IKE protocols, ensuring secure transmission of data between the on-premises site and Azure.
+* The VPN allows bi-directional communication, meaning that traffic can flow in both directions: from Azure to the on-premises network and from on-premises to Azure. This is essential for seamless hybrid cloud architectures where both sides need to communicate with each other.
+* Network Security Groups (NSGs) should not be applied to the VPN Gateway subnet. This is because the VPN Gateway needs to handle traffic in and out of the Azure VNet without being filtered by security rules. Placing an NSG on the gateway subnet could block or interfere with VPN traffic, causing connection issues.
+* During the configuration of the VPN Gateway, a shared key (pre-shared key or PSK) is used to authenticate the connection between Azure and the on-premises VPN device. Both sides must use the same shared key for the connection to be established successfully.
 
 
 
+**Site – to- Site VPN Challenges**
 
+* One of the most common issues when setting up a Site-to-Site VPN is IP address overlap between the on-premises network and the Azure VNet.
+* It uses the internet
+* Bandwidth and Latency Limitations IPsec VPNs are computationally expensive, which can limit the available bandwidth for traffic passing through the VPN tunnel.
+* When setting up a Site-to-Site VPN in Azure, the VPN Gateway needs to be deployed in its own gateway subnet. Misconfiguring this subnet can lead to connectivity issues.
+* Authentication and Key Management Issues Challenge: Site-to-Site VPNs use shared pre-shared keys (PSK) or certificates for authentication between Azure and on-premises devices
+===========================================================================================
 
+# Azure ExpressRoute
+Azure ExpressRoute is a service that enables private, high-speed, and secure connections between Microsoft datacenters and your on-premises infrastructure, or data centers in colocation facilities. Unlike traditional internet-based connections, ExpressRoute connections do not traverse the public internet, providing advantages in terms of security, reliability, speed, and latency.
 
+**Key Features of Azure ExpressRoute**
+* **Private Connection:** Traffic flows through private connections, ensuring security and reliability, with up to 10 Gbps speeds.
+* **Redundancy:** The service offers a redundant connection to ensure continuous availability.
+* **Predictable Performance:** Unlike public internet connections, ExpressRoute provides predictable throughput and performance.
+* **High Throughput:** ExpressRoute can handle high throughput traffic, ensuring that large-scale enterprise workloads can be supported.
+* **Service Level Agreement (SLA):** It comes with an SLA that guarantees availability, reliability, and performance.
+* **Low Latency:** Reduced latency compared to traditional public internet connections.
 
+**Gateway SKUs and Bandwidth**
 
+ExpressRoute offers different SKUs based on bandwidth requirements:
 
+Basic (500 Mbps): Deprecated.
+Standard (1000 Mbps).
+High Performance (2000 Mbps).
+Ultra Performance (9000 Mbps).
 
+**Route Filters**
+* **Service Control:** Route filters help control the specific Azure services advertised through the ExpressRoute connection, such as Exchange or other regional services.
+* **Regional Control** You can also control the availability of Azure services on a regional basis using route filters and BGP community values.
+
+* **Connecting Multiple Azure VNets**
+
+* **Standard ExpressRoute:** Supports connecting multiple virtual networks (VNets) within the same geopolitical region (e.g., any US region).
+* **ExpressRoute Premium:** Extends connectivity capabilities to allow connections across different global regions.
+
+* **Peering Considerations:** Communications occur through peering points, which may add latency compared to using other network peering options, so it's important to plan network architecture carefully.
+
+===========================================================================================
+
+# Azure Private Link
+Azure Private Link is a service that enables secure, private connectivity to Azure services, resources, or your own services from within an Azure Virtual Network (VNet). It allows you to access services in Azure over a private IP address rather than the public internet, providing enhanced security and data privacy.
+
+**What is Azure Private Link Service?**
+
+The Azure Private Link Service refers to your own service (hosted behind an Azure Standard Load Balancer) that is made accessible to consumers via Private Link. This enables customers to access your service securely from their own VNets, over a private connection, without going over the public internet.
+
+===========================================================================================
 
 # Network Security Groups (NSG)
 
@@ -254,15 +314,16 @@ Connects with azure validated devices
 * NSGs play a key role in managing the security and traffic flow between VMs and subnets in cloud environments like Azure, acting as virtual firewalls.
 
 **Traffic Inspection:**
-* NSGs inspect incoming and outgoing traffic at the network level.
+* NSGs inspect incoming and outgoing traffic at the **network level.**
 * They work like a virtual firewall to control the flow of traffic between virtual machines (VMs) and subnet
 
 **Rules & Priorities:**
-* NSG rules can either allow or deny traffic based on the defined criteria.
-* Priority determines rule evaluation order: lower numerical values have higher priority. For instance, a rule with priority 100 is evaluated before a rule with priority 200.
+* NSG rules can either **allow or deny** traffic based on the defined criteria.
+* Priority determines rule evaluation order: **lower numerical values have higher priority**. For instance, a rule with priority 100 is evaluated before a rule with priority 200.
 * The last rule (with the lowest priority) is the default deny rule, which blocks any traffic not explicitly allowed by earlier rules.
 * For example, if there's a rule allowing traffic from a specific source IP address on a certain port (with a high priority), and another rule denying all traffic on the same port (with a lower priority), the traffic would be allowed because the first rule takes precedence due to the higher priority number.
-Association:
+
+**Association:**
 * A single NSG can be associated with multiple network interfaces (NICs) or subnets.
 * However, each NIC or subnet can only be associated with one NSG at a time.
 
@@ -278,27 +339,32 @@ Association:
 ![alt text](https://github.com/acmarpu/images/blob/main/image8.png)
 
 
+===========================================================================================
 
 # **Azure Firewall**
 
 * Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. 
 * It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
-Fully Managed, Cloud-Based Solution:
+
+**Fully Managed, Cloud-Based Solution:**
 * Azure Firewall is a fully stateful firewall service, meaning it maintains the state of active connections and is able to track traffic flows.
 * It is entirely managed and runs as a cloud service, meaning Microsoft handles its maintenance, updates, and scaling.
-Comparison with Network Security Groups (NSGs):
+
+**Comparison with Network Security Groups (NSGs):**
 * NSGs (Network Security Groups) provide basic traffic filtering based on IP ranges and protocols and are implemented using the Virtual Filtering Platform (VFP).
 * Unlike NSGs, Azure Firewall is a more comprehensive solution with advanced features like stateful inspection, centralized management, and integration with other Azure services. NSGs are typically used in conjunction with Azure Firewall to further refine traffic control within subnets.
 
 
-# Application Security Groups (ASGs):
+===========================================================================================
 
+# Application Security Groups (ASGs):
 Application Security Groups helps to manage the security of the Azure Virtual Machines by grouping them according the applications that runs on them. It is a feature that allows the application-centric use of Network Security Groups.
 
 **Application-Centric Security:**
-
 * ASGs allow you to group VMs based on the applications they run, rather than managing security rules based on IP addresses. This approach simplifies security management, particularly in dynamic environments where VMs are frequently added or removed.
 * By grouping VMs based on their roles (e.g., web servers, database servers), security rules can be applied according to the application instead of managing complex IP-based access control lists (ACLs).
+
+===========================================================================================
 
 # Virtual Applications
 
@@ -312,3 +378,140 @@ Many virtual appliances are available in the azure marketplace
 * Essentially a VM pre-configured software and configuration to perform a certain set of functionalities
 Common examples include firewall and load balancer
 
+===========================================================================================
+
+# Network Security Appliances
+
+Network security appliances are integral to maintaining the safety, confidentiality, and availability of your IT infrastructure. These appliances, which include both Microsoft and third-party products, offer comprehensive security and protection for various aspects of your network. Here’s an overview of the key features and offerings:
+
+* **Featuring:**
+* security and protection
+* Infrastructure security 
+* Web application 
+**Third-party security appliances available through the marketplace** 
+* Barracuda
+* Palo alto 
+* Sophos
+* And more
+**Pricing will vary** 
+* Most have try before you buy
+* cale as needed 
+**Creates a VM**
+* Sizing options availability will vary
+
+
+===========================================================================================
+
+
+# Azure Load Balancer
+
+* Azure Load Balancer is a cloud-based service that distributes incoming traffic across a pool of virtual machines (VMs) to ensure high availability and resilience for applications. If a VM fails, the load balancer stops routing traffic to it, directing it to healthy VMs instead.
+
+**Resilience and High Availability:**
+
+* Distributes traffic across multiple VMs to ensure continuous availability.
+* Prevents traffic from being routed to failed VMs, ensuring application stability
+
+**OSI Model Layer**
+* Azure Load Balancer operates at Layer 4 (Transport Layer) of the OSI model, which handles traffic distribution based on TCP and UDP protocols.
+
+**Single Point of Contact:**
+* It acts as the single point of contact for clients, managing traffic between the client and backend services
+
+**Scalability and Performance:**
+* Scales to handle millions of flows, providing low latency and high throughput for both inbound and outbound traffic.
+* Suitable for scaling applications and ensuring high service availability.
+* With Azure Load Balancer, you can scale your applications and create high availability for your services. Load Balancer supports inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
+
+**Application Load Distribution:**
+* Azure Load Balancer can be used to distribute traffic between virtual machines (VMs) or cloud services in a virtual network
+
+**Load Balancing Rules:**
+* Load-balancing rules define how traffic should be distributed to backend pool instances.
+* Traffic distribution is done via a hash-based algorithm, which balances incoming flows across backend resources.
+* If a backend endpoint fails, the load balancer relies on health probes to detect failures and ensure traffic is directed only to healthy VMs.
+
+**Port Forwarding with Azure Load Balancer**
+•	Azure Load Balancer allows you to configure Port Forwarding through the use of Inbound NAT rules. This feature enables traffic to be forwarded from a specific port on a frontend IP address to a specific port on a backend instance, which is typically a virtual machine (VM) inside a virtual network.
+
+*Inbound NAT Rule:*
+* When you create an inbound NAT rule, you're essentially mapping a port on the frontend IP to a port on the backend instance (a specific VM). This allows external traffic to reach the VM even if it's behind the Load Balancer.
+
+*Traffic Flow:*
+* A client sends traffic to a specified port on the frontend IP of the Azure Load Balancer.
+* The Inbound NAT rule maps that specific port on the frontend IP to a port on a backend instance (VM).
+* The traffic is then forwarded to the appropriate backend VM on the specified port.
+
+*Hash-based Distribution:*
+•	Azure Load Balancer uses the same hash-based algorithm for inbound NAT rules as it does for regular load balancing. This ensures that traffic is consistently routed to the same backend instance based on the frontend IP and port.
+
+**Automatic reconfiguration**
+* **Seamless Scaling:** When you scale your instances up or down (e.g., adding or removing VMs), Azure Load Balancer automatically adjusts its configuration without needing manual intervention.
+* **No Additional Operations:** Once a VM is added or removed from the backend pool, the Load Balancer instantly reconfigures itself to account for these changes. This means you don’t need to perform additional operations on the Load Balancer resource itself to accommodate these changes.
+
+**Health probes**
+* Monitoring Backend Health: Azure Load Balancer uses health probes to monitor the health of backend instances (VMs).
+* Health Check Process: If a probe fails (i.e., the backend instance is unhealthy), the Load Balancer stops sending new connections to that instance. However, existing connections are not immediately impacted and will continue until:
+* The application terminates the connection.
+* An idle timeout occurs.
+* The VM is shut down.
+* This ensures that only healthy backend instances receive new traffic, while existing sessions are not disrupted unexpectedly.
+
+**Source IP Affinity mode (also known as Session Affinity or Client IP Affinity)**
+* **Purpose:** This mode ensures that traffic from the same client IP address is consistently directed to the same backend server (VM) throughout the duration of the session.
+* **How it Works:** It uses a hash-based mechanism involving a 2-tuple (source IP and destination IP) or a 3-tuple (source IP, destination IP, and protocol type) to map incoming traffic to the available backend servers.
+* **Use Case:** For applications that require session persistence, such as web applications where user sessions must remain on the same backend server.
+* **Benefit** It provides session persistence, ensuring that all requests from the same client during a session go to the same backend VM.
+
+**External Load Balancer (Internet-Facing Load Balancer)**
+* An External Load Balancer is used to provide high availability for IaaS VMs (Infrastructure as a Service) and PaaS role instances (Platform as a Service) that need to be accessed from the public internet. T
+* his type of Load Balancer balances incoming traffic from the internet to the virtual machines (VMs) hosted in Azure.
+
+**Frontend IP Address:**
+* The frontend IP address of an external load balancer has a public IP, which means it is exposed to the public internet. Clients from outside Azure can access this frontend IP to reach the services hosted behind the Load Balancer.
+* *nternal Load Balancer*
+* An Internal Load Balancer (ILB) is used to provide high availability for IaaS VMs and PaaS role instances that are accessed internally within Azure Virtual Networks (VNets) or from connected networks, but not from the public internet.
+* The internal load balancer balances traffic between VMs within the same virtual network or between networks that are connected to the VNet (via VNet peering, VPN Gateway, etc.).
+* *Frontend IP Address:*
+* The frontend IP address of an internal load balancer has a private IP, which means it is only accessible from within the VNet or connected networks
+
+* Key Differences Between Basic and Standard SKUs:
+
+===========================================================================================
+
+# Azure Application Gateway
+* Azure Application Gateway is a web traffic load balancer that enables you to manage and optimize the distribution of traffic to your web applications. It operates at OSI Layer 7 (the Application Layer), which is more advanced than traditional load balancers that work at Layer 4 (Transport Layer). This allows Azure Application Gateway to provide more granular traffic management based on application-specific criteria like URLs, headers, and even cookies.
+**Features** 
+* Autoscaling
+* SSL termination 
+* Connection draining 
+* Web application firewall
+* URL-based routing
+* ETC.
+ 
+**Web Traffic Load Balancer (Layer 7):**
+*Unlike traditional load balancers that route traffic based on IP addresses and ports (Layer 4), Azure Application Gateway routes traffic based on application-specific attributes such as URLs, host headers, and other HTTP request properties.
+*For example, requests with the path /images can be directed to a pool of servers optimized for serving images, while requests with the path /video can be routed to a separate pool optimized for video content.
+
+**URL-based Routing:**
+* URL-based routing is one of the most powerful features of Application Gateway. It allows you to route incoming traffic based on the URL path. This makes it easy to direct different types of traffic to specific backend pools (sets of servers).
+* Example:
+- Requests to example.com/images go to a backend pool optimized for serving images.
+- Requests to example.com/videos go to a backend pool optimized for video delivery.
+
+**Autoscaling:**
+* Autoscaling automatically adjusts the capacity of the Application Gateway based on the incoming traffic volume. This ensures that the gateway can handle varying traffic loads without manual intervention.
+
+**SSL Termination:**
+* SSL termination is the process of decrypting SSL/TLS traffic at the Application Gateway, offloading the computational burden from backend servers.
+
+**Connection Draining:**
+* Connection draining ensures that the backend pool can gracefully handle ongoing requests when a server is taken out of service (e.g., during scaling operations, updates, or maintenance).
+
+**Web Application Firewall (WAF):**
+* Azure Application Gateway includes a Web Application Firewall (WAF) that helps protect your web applications from common web vulnerabilities and attacks, such as SQL injection and cross-site scripting (XSS).
+* WAF uses predefined rules to filter and monitor HTTP traffic for malicious content, enhancing the security of the applications behind the gateway.
+
+**Static VIP:**
+* Static VIP ensures that the Virtual IP (VIP) associated with the Application Gateway remains static, meaning it doesn’t change even after a restart. This is particularly important for DNS resolution and application stability, as it avoids the need for reconfiguring IP addresses or DNS records.
+* Static VIP provides a consistent and reliable endpoint for users accessing your application, improving resilience and simplifying network management.
