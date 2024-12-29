@@ -1,3 +1,42 @@
+# Azure compute
+
+# Availability set
+* An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide redundancy and availability. 
+* It is recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the 99.95% Azure SLA. 
+* When a single VM is used with Azure Premium Storage, the Azure SLA applies for unplanned maintenance events. 
+* Consist of Fault domain and update domain
+* Consist of VM which are running the same application 
+* Distribute the VMs which are in availability set to different fault domains and updates domains 
+
+* **Fault domain:** Set of physical servers connected to same power source and network source 
+* **Update domain:** set of physical servers running win2012 Hyper-V where MS will do patch management or firmware upgradations at once  
+
+===========================================================================================
+
+# Availability Zone
+* an Availability Zone (AZ) is a physically separate data center within an Azure region, designed to provide high availability and resiliency for applications and services. Each Availability Zone is equipped with its own independent power supply, network infrastructure, and cooling systems, ensuring that they can continue to function even if one zone experiences a failure (e.g., power outage, hardware failure).
+
+
+===========================================================================================
+
+# Auto scaling(VMSS)
+Auto scaling is the process of dynamically allocating resources to match performance requirements. 
+As the volume of work grows, an application may need additional resources to maintain the desired performance levels and satisfy service-level agreements (SLAs). As demand slackens and the additional resources are no longer needed, they can be de-allocated to minimize costs. 
+
+* **Limitations**
+
+* SKUs are not mutable. You may not change the SKU of an existing resource.
+A Load Balancer rule cannot span two virtual networks. Frontends and their related backend instances must be located in the same virtual network.
+
+Load Balancer frontends are not accessible across global virtual network peering
+
+* **a) Vertical scaling,** also called scaling up and down, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it's less common to automate vertical scaling.
+
+* **b) Horizontal scaling,** also called scaling out and in, means adding or removing instances of a resource. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated.
+
+===========================================================================================
+
+
 # Azure Networking
 
 Azure Networking is a set of cloud-based services and technologies offered by Microsoft Azure that enables you to connect, secure, and manage resources in a networked environment. Azure Networking helps businesses build scalable, high-performance, and secure networking solutions in the cloud. It provides a suite of tools for virtual networking, load balancing, DNS, security, and hybrid connectivity, allowing seamless communication and integration between different resources and environments (cloud, on-premises, or hybrid).
@@ -72,11 +111,9 @@ Azure Public IP Address:
 * The notation is constructed from an IP address, a slash (“/”) character and a decimal number. The number is the count of leading 1 bit in the routing mask traditionally called the network mask 
 
 **Network Interface Card (NIC)**
-
-is a critical component in virtual machine (VM) networking in Azure, as it enables communication between the VM and other resources within a network, both inside and outside the Azure environment. Here are the key points about NICs in Azure: 
+* NIC is a critical component in virtual machine (VM) networking in Azure, as it enables communication between the VM and other resources within a network, both inside and outside the Azure environment. Here are the key points about NICs in Azure: 
 
 **Azure DNS**
-
 * Azure DNS is a scalable, reliable, and secure Domain Name System (DNS) hosting service provided by Microsoft Azure. 
 * It allows organizations to manage their DNS records and domains with the same tools, APIs, and credentials that they use for other Azure services.
 * Azure DNS benefits from Microsoft’s global infrastructure, which ensures high availability, redundancy, and fast name resolution
@@ -94,7 +131,6 @@ is a critical component in virtual machine (VM) networking in Azure, as it enabl
 
 
 **Private DNS Zones:**
-
 * Azure DNS also supports Private DNS Zones, which are designed for private IP address management within a virtual network (VNet). These zones allow for DNS resolution to occur within an Azure Virtual Network (VNet) without exposing those records to the internet.
 
 * **Registration VNet:** A private zone can have one registration VNet, where records are published. The registration VNet is responsible for creating and updating DNS records in the private zone.
@@ -108,23 +144,22 @@ is a critical component in virtual machine (VM) networking in Azure, as it enabl
 
 An Azure Virtual Network (VNet) is a representation of your own network in the cloud. It is a logical isolation of the Azure cloud dedicated to your subscription.
 
-**1.	VNet as a Representation of Your Network in the Cloud**
-
+**1.VNet as a Representation of Your Network in the Cloud**
 * Azure Virtual Network (VNet) allows you to create an isolated, private network within the Azure cloud. It is the foundational network service for managing and connecting resources, such as Virtual Machines (VMs), Databases, and other services, within Azure
 * A VNet is analogous to a traditional on-premises network but fully managed by Azure. It allows you to securely extend your on-premises network into the cloud and manage traffic between your cloud resources.
 
-**2.	Fundamental Building Block for Private Networks**
+**2.Fundamental Building Block for Private Networks**
 * A VNet serves as the central platform for deploying Infrastructure as a Service (IaaS) component like VMs and Platform as a Service (PaaS) components like web apps, databases, and other Azure services. Without VNets, you would not have a private network on which to connect these resources.
 
-**3.	Region and Subscription-Based**
+**3.Region and Subscription-Based**
 * A VNet is specific to an Azure region and belongs to a single Azure subscription. Each subscription can contain multiple VNets, but each VNet can only exist in one region. This is important for planning both regional availability and network latency.
 
  
-**4.	IP Addressing**
-
+**4.IP Addressing**
 * When you create a VNet, you define a CIDR block (Classless Inter-Domain Routing) to allocate a range of private IP addresses for your network. This address space is used to assign IPs to your virtual machines, load balancers, and other resources in the VNet.
 * Azure supports up to 4096 IP addresses in a single VNet, though smaller subnets can be created within this range for better resource management.
 * It’s essential to plan the IP address space carefully to avoid conflicts with other VNets, on-premises networks, or other Azure services.
+
 =========================================================================================
 # 5.Subnet
 
@@ -145,28 +180,26 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 * When defining a subnet within a VNet, certain IP addresses are reserved for Azure’s internal use and cannot be assigned to VMs or other resources:
 
 **For every subnet in Azure, the following IP addresses are reserved**
-
-
 * **Network address (x.x.x.0):** Identifies the subnet itself.
+
 * **Default gateway (x.x.x.1):** This IP address is reserved for Azure’s default gateway to route traffic within the VNet and to external networks.
+
 * **Reserved for Azure DNS (x.x.x.2, x.x.x.3):** These IP addresses are reserved for Azure's internal DNS services, which allow the resources in the VNet to resolve domain names.
+
 * **Last IP address: (x.x.x.255)** is reserved as the broadcast address. It is used to send broadcast messages to all devices in the subnet (although, in Azure, broadcast traffic is typically restricted).
 
 * *Reserved IPs: 5 IPs (network address, default gateway, 2 Azure DNS addresses, and broadcast address).*
 * *Usable IPs: 256 - 5 = 251 usable IP addresses.*
 
 **5.	Non-Overlapping IP Address Ranges**
-
 * When creating a VNet, the CIDR blocks you choose should not overlap with other VNets or your on-premises network. This is crucial for routing traffic correctly between networks.
 * If there is an overlap, communication between the VNets or the VNet and on-premises networks will not work correctly, and you will encounter routing issues.
 
 **6.	Traffic Control**
-
 * You can control how traffic flows between different subnets, VNets, and on-premises networks through route tables and custom network security policies.
 
 
 **Benefits of Using Azure VNets:**
-
 * **Isolation.** Vnets are completely isolated from one another. That allow you to create disjoint network from development, testing, production that use the same CIDR address book 
 * **Access to the Public internet** All IaaS and PaaS role instances in a Vnet can access the public internet by default. You can control access by using by network security group (NSG)
 * **Access to VMs with the Vnet.** PaaS role instance and IaaS VMs can be launched in the same virtual network and they can connect each other using private IP address if they are in different subnets without need to configure a getaway or use public IP address 
@@ -183,31 +216,34 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 
 **Key Points:**
 * **No Gateways Required:** Peering establishes direct connectivity using the Azure backbone network, without needing a VPN gateway or public internet.
+
 * **Low Cost:** The ingress and egress traffic between peered VNets incurs nominal costs, typically based on data transfer between regions.
 
 **Global VNet Peering**
-
 * This is an extension of VNet Peering, where you connect VNets across different Azure regions.
+
 * **Global Connectivity:** It enables network traffic between VNets in different geographic regions without needing to route traffic over the public internet.
+
 * **Regions:** The peering link between VNets can span multiple Azure regions, enabling geographically dispersed resources to communicate securely.
+
 * **Cost:** Data transfer charges for Global VNet Peering are typically higher than those for peering within the same region.
 
 **VNet Peering Across Different Subscriptions**
 * **Support for Different Subscriptions:** Azure allows VNet Peering even if the VNets are in different Azure subscriptions, as long as the user has the appropriate permissions for both subscriptions.
+
 * **Use Case:** This can be particularly useful in multi-tenant scenarios or where different departments or teams have separate Azure subscriptions but need to establish network communication.
 
 
 **Routing between Azure and on-premises**
-
 * Must use unique IP address ranges: It is essential that the IP address ranges for on-premises networks and Azure Virtual Networks (VNets) are unique.
 
 **Types of peering**
 * **Site-to-Site VPN** (Private Peering) This is a private peering method where a VPN connection is used to securely link an on-premises network to an Azure VNet. Site-to-Site VPNs are common for hybrid environments where on-premises data centers need to connect to Azure networks securely.
 * This method is also supported with ExpressRoute.
+
 * **ExpressRoute Peering ExpressRoute** provides a private, dedicated connection between an on-premises network and Azure, bypassing the public internet. This method is used for high-performance and low-latency network requirements.
 
 **Azure VPN Gateway**
-
 * The Azure VPN Gateway is used to send encrypted traffic between an Azure VNet and an on-premises network over the internet. It can also be used for inter-VNet communication within Azure.
 
 Can also be used between azure virtual networks 
@@ -217,7 +253,6 @@ Can also be used between azure virtual networks
 Connects with azure validated devices 
 
 **Types of VPN Gateway**
-
 * IPSEC is computationally expensive which limits bandwidth 
 **Four SKUs of gateway**
 * **Basic:**
@@ -255,9 +290,6 @@ Connects with azure validated devices
 * Network Security Groups (NSGs) should not be applied to the VPN Gateway subnet. This is because the VPN Gateway needs to handle traffic in and out of the Azure VNet without being filtered by security rules. Placing an NSG on the gateway subnet could block or interfere with VPN traffic, causing connection issues.
 * During the configuration of the VPN Gateway, a shared key (pre-shared key or PSK) is used to authenticate the connection between Azure and the on-premises VPN device. Both sides must use the same shared key for the connection to be established successfully.
 
-===========================================================================================
-
-
 **Site – to- Site VPN Challenges**
 
 * One of the most common issues when setting up a Site-to-Site VPN is IP address overlap between the on-premises network and the Azure VNet.
@@ -265,6 +297,7 @@ Connects with azure validated devices
 * Bandwidth and Latency Limitations IPsec VPNs are computationally expensive, which can limit the available bandwidth for traffic passing through the VPN tunnel.
 * When setting up a Site-to-Site VPN in Azure, the VPN Gateway needs to be deployed in its own gateway subnet. Misconfiguring this subnet can lead to connectivity issues.
 * Authentication and Key Management Issues Challenge: Site-to-Site VPNs use shared pre-shared keys (PSK) or certificates for authentication between Azure and on-premises devices
+
 ===========================================================================================
 
 # Azure ExpressRoute
@@ -315,7 +348,7 @@ The Hub-Spoke topology in Azure is a popular architecture pattern used to effici
 *	They do not communicate directly with each other but can communicate with the hub for accessing shared services like DNS or NTP.
 
 **Cost Efficiency:**
-Centralizing shared services in the hub VNet reduces the need for redundant infrastructure in each spoke, which helps to lower costs. For example, centralized services like firewalls, DNS servers, and NTP servers can be shared by multiple workloads in the spokes. 
+* Centralizing shared services in the hub VNet reduces the need for redundant infrastructure in each spoke, which helps to lower costs. For example, centralized services like firewalls, DNS servers, and NTP servers can be shared by multiple workloads in the spokes. 
 
 ===========================================================================================
 
@@ -653,8 +686,55 @@ Azure Service Endpoints provide a way for private IP addresses in your Azure Vir
 * Offers more granular control by assigning a private IP to the service and allowing it to be exposed to customers via private endpoints.
 * Use cases: Recommended for scenarios requiring strong data security, compliance, and private network connections, like accessing sensitive services or exposing your own services securely.
 
+===========================================================================================
+
+# CDN (Azure Content Delivery Network): 
+*	It is used for the delivery of the contents stored in the storage account. 
+*	We can use a content delivery network to reduce the latency of the delivery. 
+*	We will create a CDN endpoint near to the users to reduce the latency.
+
+*	**Azure Content Delivery Network (CDN)** is a distributed network of servers that accelerates the delivery of content, such as web pages, images, videos, and other static or dynamic content, to users across the globe. The main purpose of Azure CDN is to reduce latency, improve user experience, and ensure high availability by serving content from servers that are geographically closer to the end user.
+*	**Reduced Latency:**
+Azure CDN caches content at edge locations around the world. When a user requests content, the request is routed to the nearest CDN server, reducing the time it takes to fetch the content.
+*	**Improved Performance:**
+By serving content from the edge server closest to the user, Azure CDN reduces the load on the origin server, which results in improved overall application performance
+*	**Global Reach:**
+Azure CDN provides a global network of edge locations to ensure that users from any region can access content with minimal latency. By creating a CDN endpoint near to the users, content delivery is accelerated regardless of the user's location.
+*	**Scalability:**
+Azure CDN automatically scales to meet the demands of users. As traffic increases, the CDN adjusts its resources to handle the increased load without requiring manual intervention.
+*	**Cost Savings:**
+By caching content at edge locations, Azure CDN reduces the number of requests made to the origin server, which can lower the load on the server and reduce the associated data transfer costs.
+*	**Security:**
+Azure CDN can work with HTTPS to encrypt content during transit, providing secure delivery of content. It also offers protection against DDoS (Distributed Denial-of-Service) attacks by mitigating traffic spikes and redirecting requests to healthy servers.
+*	**Media and Video Streaming:**
+For websites or applications delivering videos or high-resolution images, Azure CDN helps provide fast loading times and high-quality streaming experiences, regardless of the user's geographic location.
+
+
+*	**Azure CDN Pricing**
+
+Azure CDN pricing is based on:
+
+* **Data Transfer:** Charges for data transferred from the CDN to the users.
+* **Requests:** Charges for the number of requests made to the CDN (e.g., GET, POST, etc.).
+* **Geographical Location:** Pricing may vary depending on the region from which the content is served and the network's edge locations.
+* **Caching Options:** Some CDN services offer custom caching rules and the option to control how long content is cached at the edge location.
+
+*	**CDN Types in Azure**
+
+Azure provides three types of CDN offerings:
+
+**Standard Microsoft CDN:**
+
+A Microsoft-backed CDN service that uses the global edge network of Microsoft’s data centers.
+**Standard Akamai CDN:**
+
+A CDN service backed by Akamai, one of the largest and most established CDN providers globally. It is ideal for users looking for more advanced features and global coverage.
+**Standard Verizon CDN:**
+
+A CDN service backed by Verizon's edge network, offering optimized performance and reliability across their network.
 
 ===========================================================================================
+# Monitoring and Maintain Azure Resources
 
 # Azure Monitor 
 *	A single source for the monitoring of Azure resource
@@ -724,50 +804,6 @@ Application Insights collects telemetry data from your application to give a ful
 
 ===========================================================================================
 
-# CDN (Azure Content Delivery Network): 
-*	It is used for the delivery of the contents stored in the storage account. 
-*	We can use a content delivery network to reduce the latency of the delivery. 
-*	We will create a CDN endpoint near to the users to reduce the latency.
-
-*	**Azure Content Delivery Network (CDN)** is a distributed network of servers that accelerates the delivery of content, such as web pages, images, videos, and other static or dynamic content, to users across the globe. The main purpose of Azure CDN is to reduce latency, improve user experience, and ensure high availability by serving content from servers that are geographically closer to the end user.
-*	**Reduced Latency:**
-Azure CDN caches content at edge locations around the world. When a user requests content, the request is routed to the nearest CDN server, reducing the time it takes to fetch the content.
-*	**Improved Performance:**
-By serving content from the edge server closest to the user, Azure CDN reduces the load on the origin server, which results in improved overall application performance
-*	**Global Reach:**
-Azure CDN provides a global network of edge locations to ensure that users from any region can access content with minimal latency. By creating a CDN endpoint near to the users, content delivery is accelerated regardless of the user's location.
-*	**Scalability:**
-Azure CDN automatically scales to meet the demands of users. As traffic increases, the CDN adjusts its resources to handle the increased load without requiring manual intervention.
-*	**Cost Savings:**
-By caching content at edge locations, Azure CDN reduces the number of requests made to the origin server, which can lower the load on the server and reduce the associated data transfer costs.
-*	**Security:**
-Azure CDN can work with HTTPS to encrypt content during transit, providing secure delivery of content. It also offers protection against DDoS (Distributed Denial-of-Service) attacks by mitigating traffic spikes and redirecting requests to healthy servers.
-*	**Media and Video Streaming:**
-For websites or applications delivering videos or high-resolution images, Azure CDN helps provide fast loading times and high-quality streaming experiences, regardless of the user's geographic location.
-
-
-*	**Azure CDN Pricing**
-
-Azure CDN pricing is based on:
-
-* **Data Transfer:** Charges for data transferred from the CDN to the users.
-* **Requests:** Charges for the number of requests made to the CDN (e.g., GET, POST, etc.).
-* **Geographical Location:** Pricing may vary depending on the region from which the content is served and the network's edge locations.
-* **Caching Options:** Some CDN services offer custom caching rules and the option to control how long content is cached at the edge location.
-
-*	**CDN Types in Azure**
-
-Azure provides three types of CDN offerings:
-
-**Standard Microsoft CDN:**
-
-A Microsoft-backed CDN service that uses the global edge network of Microsoft’s data centers.
-**Standard Akamai CDN:**
-
-A CDN service backed by Akamai, one of the largest and most established CDN providers globally. It is ideal for users looking for more advanced features and global coverage.
-**Standard Verizon CDN:**
-
-A CDN service backed by Verizon's edge network, offering optimized performance and reliability across their network.
 
 
 
