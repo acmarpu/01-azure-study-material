@@ -125,7 +125,7 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 * When you create a VNet, you define a CIDR block (Classless Inter-Domain Routing) to allocate a range of private IP addresses for your network. This address space is used to assign IPs to your virtual machines, load balancers, and other resources in the VNet.
 * Azure supports up to 4096 IP addresses in a single VNet, though smaller subnets can be created within this range for better resource management.
 * It’s essential to plan the IP address space carefully to avoid conflicts with other VNets, on-premises networks, or other Azure services.
-
+===========================================================================================
 # 5.Subnet
 
 * A subnet is a range of IP addresses within a VNet. You can divide a VNet into multiple subnets based on your design and network architecture.
@@ -176,7 +176,7 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 
 ![alt text](https://github.com/acmarpu/images/blob/main/image7.png)
 
-
+===========================================================================================
 
 # Virtual Network Peering (VNet Peering)
 * Definition: VNet Peering allows connectivity between two virtual networks (VNets) in the same Azure region or across different regions. This enables resources in each VNet to communicate with each other using private IP addresses, as though they were part of the same network.
@@ -240,10 +240,11 @@ Connects with azure validated devices
 * Point-to-Site VPNs in Azure typically use SSTP as the protocol for secure communication. SSTP is a SSL-based VPN that uses HTTPS over TCP port 443, which makes it easier to bypass firewalls and proxies, as it can work over standard web traffic ports.
 * Point-to-Site VPN utilizes certificate-based authentication to ensure secure connections.
 * The process involves two main types of certificates:
-* Root certificate: This is the certificate that is uploaded to Azure to authenticate the incoming connections.
-* Client certificates: These are installed on the computers or devices that will use the Point-to-Site VPN to connect to Azure. The client certificates prove the identity of the device when attempting to establish a secure connection.
+* **Root certificate:** This is the certificate that is uploaded to Azure to authenticate the incoming connections.
+* **Client certificates:** These are installed on the computers or devices that will use the Point-to-Site VPN to connect to Azure. The client certificates prove the identity of the device when attempting to establish a secure connection.
 
 
+===========================================================================================
 
 # Site -to -Site VPN
 
@@ -254,6 +255,7 @@ Connects with azure validated devices
 * Network Security Groups (NSGs) should not be applied to the VPN Gateway subnet. This is because the VPN Gateway needs to handle traffic in and out of the Azure VNet without being filtered by security rules. Placing an NSG on the gateway subnet could block or interfere with VPN traffic, causing connection issues.
 * During the configuration of the VPN Gateway, a shared key (pre-shared key or PSK) is used to authenticate the connection between Azure and the on-premises VPN device. Both sides must use the same shared key for the connection to be established successfully.
 
+===========================================================================================
 
 
 **Site – to- Site VPN Challenges**
@@ -281,8 +283,11 @@ Azure ExpressRoute is a service that enables private, high-speed, and secure con
 ExpressRoute offers different SKUs based on bandwidth requirements:
 
 Basic (500 Mbps): Deprecated.
+
 Standard (1000 Mbps).
+
 High Performance (2000 Mbps).
+
 Ultra Performance (9000 Mbps).
 
 **Route Filters**
@@ -469,10 +474,12 @@ Network security appliances are integral to maintaining the safety, confidential
 
 **Frontend IP Address:**
 * The frontend IP address of an external load balancer has a public IP, which means it is exposed to the public internet. Clients from outside Azure can access this frontend IP to reach the services hosted behind the Load Balancer.
-* *nternal Load Balancer*
+
+* **Internal Load Balancer**
 * An Internal Load Balancer (ILB) is used to provide high availability for IaaS VMs and PaaS role instances that are accessed internally within Azure Virtual Networks (VNets) or from connected networks, but not from the public internet.
 * The internal load balancer balances traffic between VMs within the same virtual network or between networks that are connected to the VNet (via VNet peering, VPN Gateway, etc.).
-* *Frontend IP Address:*
+
+* **Frontend IP Address:**
 * The frontend IP address of an internal load balancer has a private IP, which means it is only accessible from within the VNet or connected networks
 
 * Key Differences Between Basic and Standard SKUs:
@@ -481,6 +488,7 @@ Network security appliances are integral to maintaining the safety, confidential
 
 # Azure Application Gateway
 * Azure Application Gateway is a web traffic load balancer that enables you to manage and optimize the distribution of traffic to your web applications. It operates at OSI Layer 7 (the Application Layer), which is more advanced than traditional load balancers that work at Layer 4 (Transport Layer). This allows Azure Application Gateway to provide more granular traffic management based on application-specific criteria like URLs, headers, and even cookies.
+
 **Features** 
 * Autoscaling
 * SSL termination 
@@ -490,8 +498,8 @@ Network security appliances are integral to maintaining the safety, confidential
 * ETC.
  
 **Web Traffic Load Balancer (Layer 7):**
-*Unlike traditional load balancers that route traffic based on IP addresses and ports (Layer 4), Azure Application Gateway routes traffic based on application-specific attributes such as URLs, host headers, and other HTTP request properties.
-*For example, requests with the path /images can be directed to a pool of servers optimized for serving images, while requests with the path /video can be routed to a separate pool optimized for video content.
+* Unlike traditional load balancers that route traffic based on IP addresses and ports (Layer 4), Azure Application Gateway routes traffic based on application-specific attributes such as URLs, host headers, and other HTTP request properties.
+* For example, requests with the path /images can be directed to a pool of servers optimized for serving images, while requests with the path /video can be routed to a separate pool optimized for video content.
 
 **URL-based Routing:**
 * URL-based routing is one of the most powerful features of Application Gateway. It allows you to route incoming traffic based on the URL path. This makes it easy to direct different types of traffic to specific backend pools (sets of servers).
