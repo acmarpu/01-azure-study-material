@@ -102,7 +102,7 @@ is a critical component in virtual machine (VM) networking in Azure, as it enabl
 
 * Azure DNS can be part of a hybrid cloud solution where on-premises networks and Azure VNets work together. Azure DNS allows you to set up DNS resolution rules that ensure services across hybrid environments can communicate effectively.
 * For enterprises already using Azure Active Directory, Azure Networking, and other Azure services, Azure DNS offers a seamless experience to manage everything in one place, providing unified management and billing.
-
+===========================================================================================
 
 # **Azure Virtual Network (VNet)**
 
@@ -117,7 +117,7 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 * A VNet serves as the central platform for deploying Infrastructure as a Service (IaaS) component like VMs and Platform as a Service (PaaS) components like web apps, databases, and other Azure services. Without VNets, you would not have a private network on which to connect these resources.
 
 **3.	Region and Subscription-Based**
-*A VNet is specific to an Azure region and belongs to a single Azure subscription. Each subscription can contain multiple VNets, but each VNet can only exist in one region. This is important for planning both regional availability and network latency.
+* A VNet is specific to an Azure region and belongs to a single Azure subscription. Each subscription can contain multiple VNets, but each VNet can only exist in one region. This is important for planning both regional availability and network latency.
 
  
 **4.	IP Addressing**
@@ -138,8 +138,8 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 
 **Subnet Configuration: Route Tables and NSGs**
 * You can associate Route Tables and Network Security Groups (NSGs) with individual subnets:
-Route Tables: These define how traffic is directed within the VNet or between VNets and external resources.
-NSGs:  You can apply NSGs to subnets (or individual network interfaces) to control inbound and outbound traffic based on rules.
+* **Route Tables:** These define how traffic is directed within the VNet or between VNets and external resources.
+* **NSGs:**  You can apply NSGs to subnets (or individual network interfaces) to control inbound and outbound traffic based on rules.
 
 **IP Addressing within Subnets**
 * When defining a subnet within a VNet, certain IP addresses are reserved for Azure’s internal use and cannot be assigned to VMs or other resources:
@@ -167,12 +167,12 @@ NSGs:  You can apply NSGs to subnets (or individual network interfaces) to contr
 
 **Benefits of Using Azure VNets:**
 
-* Isolation. Vnets are completely isolated from one another. That allow you to create disjoint network from development, testing, production that use the same CIDR address book 
-* Access to the Public internet All IaaS and PaaS role instances in a Vnet can access the public internet by default. You can control access by using by network security group (NSG)
-* Access to VMs with the Vnet. PaaS role instance and IaaS VMs can be launched in the same virtual network and they can connect each other using private IP address if they are in different subnets without need to configure a getaway or use public IP address 
-* Name resolution Azure provide the internal name resolution for IaaS VMs and PaaS role instance deployed in your Vnet you can also deploy your own DNS servers and configure the Vnet use them.
-* Security traffic entering and existing the virtual machines and PaaS role instance in a Vnet can be controlling use Network Security Group
-* Connectivity Vnets can be connected to each other, and even to your on-premises datacentre by using Site-to-Site VPN connection or Express route connection.  
+* **Isolation.** Vnets are completely isolated from one another. That allow you to create disjoint network from development, testing, production that use the same CIDR address book 
+* **Access to the Public internet** All IaaS and PaaS role instances in a Vnet can access the public internet by default. You can control access by using by network security group (NSG)
+* **Access to VMs with the Vnet.** PaaS role instance and IaaS VMs can be launched in the same virtual network and they can connect each other using private IP address if they are in different subnets without need to configure a getaway or use public IP address 
+* **Name resolution** Azure provide the internal name resolution for IaaS VMs and PaaS role instance deployed in your Vnet you can also deploy your own DNS servers and configure the Vnet use them.
+* **Security** traffic entering and existing the virtual machines and PaaS role instance in a Vnet can be controlling use Network Security Group
+* **Connectivity** Vnets can be connected to each other, and even to your on-premises datacentre by using Site-to-Site VPN connection or Express route connection.  
 
 ![alt text](https://github.com/acmarpu/images/blob/main/image7.png)
 
@@ -195,6 +195,44 @@ NSGs:  You can apply NSGs to subnets (or individual network interfaces) to contr
 **VNet Peering Across Different Subscriptions**
 * **Support for Different Subscriptions:** Azure allows VNet Peering even if the VNets are in different Azure subscriptions, as long as the user has the appropriate permissions for both subscriptions.
 * **Use Case:** This can be particularly useful in multi-tenant scenarios or where different departments or teams have separate Azure subscriptions but need to establish network communication.
+
+
+**Routing between Azure and on-premises**
+
+* Must use unique IP address ranges: It is essential that the IP address ranges for on-premises networks and Azure Virtual Networks (VNets) are unique.
+
+**Types of peering**
+* **Site-to-Site VPN** (Private Peering) This is a private peering method where a VPN connection is used to securely link an on-premises network to an Azure VNet. Site-to-Site VPNs are common for hybrid environments where on-premises data centers need to connect to Azure networks securely.
+* This method is also supported with ExpressRoute.
+* **ExpressRoute Peering ExpressRoute** provides a private, dedicated connection between an on-premises network and Azure, bypassing the public internet. This method is used for high-performance and low-latency network requirements.
+
+**Azure VPN Gateway**
+
+* The Azure VPN Gateway is used to send encrypted traffic between an Azure VNet and an on-premises network over the internet. It can also be used for inter-VNet communication within Azure.
+
+Can also be used between azure virtual networks 
+
+* Encrypted traffic across the azure platform 
+
+Connects with azure validated devices 
+
+**Types of VPN Gateway**
+
+* IPSEC is computationally expensive which limits bandwidth 
+**Four SKUs of gateway**
+* **Basic:**
+* Maximum throughput: 100 Mbps.
+* Supports up to 10 tunnels.
+* **VpnGw1:**
+* Maximum throughput: 500 Mbps.
+* Supports up to 10 tunnels.
+* **VpnGw2:**
+* Maximum throughput: 1 Gbps.
+* Supports up to 30 tunnels.
+* **VpnGw3:**
+* Maximum throughput: 1.25 Gbps.
+* Supports up to 30 tunnels.
+
 
 
 
