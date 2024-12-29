@@ -1,4 +1,4 @@
-# Azure compute
+# Azure Compute
 
 # Availability set
 * An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide redundancy and availability. 
@@ -8,15 +8,17 @@
 * Consist of VM which are running the same application 
 * Distribute the VMs which are in availability set to different fault domains and updates domains 
 
-* **Fault domain:** Set of physical servers connected to same power source and network source 
-* **Update domain:** set of physical servers running win2012 Hyper-V where MS will do patch management or firmware upgradations at once  
+* **Fault domain:** Set of physical servers connected to same power source and network source
+![alt text](https://github.com/acmarpu/images/blob/main/image7.png)
+* **Update domain:** set of physical servers running win2012 Hyper-V where MS will do patch management or firmware upgradations at once 
+![alt text](https://github.com/acmarpu/images/blob/main/image8.png)
 
 ===========================================================================================
 
 # Availability Zone
 * an Availability Zone (AZ) is a physically separate data center within an Azure region, designed to provide high availability and resiliency for applications and services. Each Availability Zone is equipped with its own independent power supply, network infrastructure, and cooling systems, ensuring that they can continue to function even if one zone experiences a failure (e.g., power outage, hardware failure).
 
-
+![alt text](https://github.com/acmarpu/images/blob/main/image9.png)
 ===========================================================================================
 
 # Auto scaling(VMSS)
@@ -36,6 +38,43 @@ Load Balancer frontends are not accessible across global virtual network peering
 
 ===========================================================================================
 
+
+
+# Virtual Applications
+
+* Azure network virtual appliance is used in the Azure application to enhance high availability. It is used as an advanced level of control over traffic flows, such as when building a demilitarized zone (DMZ) in the cloud.
+Many virtual appliances are available in the azure marketplace
+
+**license can be based on**
+*   Bring your own license*
+*   Hourly billing*
+
+* Essentially a VM pre-configured software and configuration to perform a certain set of functionalities
+Common examples include firewall and load balancer
+
+===========================================================================================
+
+# Network Security Appliances
+
+Network security appliances are integral to maintaining the safety, confidentiality, and availability of your IT infrastructure. These appliances, which include both Microsoft and third-party products, offer comprehensive security and protection for various aspects of your network. Here’s an overview of the key features and offerings:
+
+* **Featuring:**
+* security and protection
+* Infrastructure security 
+* Web application 
+**Third-party security appliances available through the marketplace** 
+* Barracuda
+* Palo alto 
+* Sophos
+* And more
+**Pricing will vary** 
+* Most have try before you buy
+* cale as needed 
+**Creates a VM**
+* Sizing options availability will vary
+
+
+===========================================================================================
 
 # Azure Networking
 
@@ -138,7 +177,7 @@ Azure Public IP Address:
 
 * Azure DNS can be part of a hybrid cloud solution where on-premises networks and Azure VNets work together. Azure DNS allows you to set up DNS resolution rules that ensure services across hybrid environments can communicate effectively.
 * For enterprises already using Azure Active Directory, Azure Networking, and other Azure services, Azure DNS offers a seamless experience to manage everything in one place, providing unified management and billing.
-===========================================================================================
+=========================================================================================
 
 # **Azure Virtual Network (VNet)**
 
@@ -207,7 +246,7 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 * **Security** traffic entering and existing the virtual machines and PaaS role instance in a Vnet can be controlling use Network Security Group
 * **Connectivity** Vnets can be connected to each other, and even to your on-premises datacentre by using Site-to-Site VPN connection or Express route connection.  
 
-![alt text](https://github.com/acmarpu/images/blob/main/image7.png)
+![alt text](https://github.com/acmarpu/images/blob/main/image10.png)
 
 ===========================================================================================
 
@@ -233,6 +272,7 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 
 * **Use Case:** This can be particularly useful in multi-tenant scenarios or where different departments or teams have separate Azure subscriptions but need to establish network communication.
 
+![alt text](https://github.com/acmarpu/images/blob/main/image11.png)
 
 **Routing between Azure and on-premises**
 * Must use unique IP address ranges: It is essential that the IP address ranges for on-premises networks and Azure Virtual Networks (VNets) are unique.
@@ -268,6 +308,8 @@ Connects with azure validated devices
 * Maximum throughput: 1.25 Gbps.
 * Supports up to 30 tunnels.
 
+![alt text](https://github.com/acmarpu/images/blob/main/image12.png)
+
 ===========================================================================================
 
 # Point-to -Site VPN
@@ -278,7 +320,7 @@ Connects with azure validated devices
 * **Root certificate:** This is the certificate that is uploaded to Azure to authenticate the incoming connections.
 * **Client certificates:** These are installed on the computers or devices that will use the Point-to-Site VPN to connect to Azure. The client certificates prove the identity of the device when attempting to establish a secure connection.
 
-
+![alt text](https://github.com/acmarpu/images/blob/main/image13.png)
 ===========================================================================================
 
 # Site -to -Site VPN
@@ -297,6 +339,9 @@ Connects with azure validated devices
 * Bandwidth and Latency Limitations IPsec VPNs are computationally expensive, which can limit the available bandwidth for traffic passing through the VPN tunnel.
 * When setting up a Site-to-Site VPN in Azure, the VPN Gateway needs to be deployed in its own gateway subnet. Misconfiguring this subnet can lead to connectivity issues.
 * Authentication and Key Management Issues Challenge: Site-to-Site VPNs use shared pre-shared keys (PSK) or certificates for authentication between Azure and on-premises devices
+
+
+![alt text](https://github.com/acmarpu/images/blob/main/image14.png)
 
 ===========================================================================================
 
@@ -334,6 +379,9 @@ Ultra Performance (9000 Mbps).
 
 * **Peering Considerations:** Communications occur through peering points, which may add latency compared to using other network peering options, so it's important to plan network architecture carefully.
 
+
+![alt text](https://github.com/acmarpu/images/blob/main/image15.png)
+
 ===========================================================================================
 # Hub-Spoke Network Topology in Azure
 The Hub-Spoke topology in Azure is a popular architecture pattern used to efficiently organize and manage virtual networks (VNets) while ensuring proper isolation, security, and cost-effectiveness. In this architecture, the hub VNet acts as a central point of connectivity, typically connecting on-premises resources to the Azure cloud, while the spokes are individual VNets used to host workloads and applications that may or may not need direct communication with each other.
@@ -350,6 +398,8 @@ The Hub-Spoke topology in Azure is a popular architecture pattern used to effici
 **Cost Efficiency:**
 * Centralizing shared services in the hub VNet reduces the need for redundant infrastructure in each spoke, which helps to lower costs. For example, centralized services like firewalls, DNS servers, and NTP servers can be shared by multiple workloads in the spokes. 
 
+![alt text](https://github.com/acmarpu/images/blob/main/image16.png)
+
 ===========================================================================================
 
 # Azure Private Link
@@ -359,107 +409,60 @@ Azure Private Link is a service that enables secure, private connectivity to Azu
 
 The Azure Private Link Service refers to your own service (hosted behind an Azure Standard Load Balancer) that is made accessible to consumers via Private Link. This enables customers to access your service securely from their own VNets, over a private connection, without going over the public internet.
 
-===========================================================================================
-
-# Network Security Groups (NSG)
-
-* NSGs are composed of a set of security rules.
-* Each rule defines whether inbound (incoming) or outbound traffic is allowed or denied.
-* NSGs play a key role in managing the security and traffic flow between VMs and subnets in cloud environments like Azure, acting as virtual firewalls.
-
-**Traffic Inspection:**
-* NSGs inspect incoming and outgoing traffic at the **network level.**
-* They work like a virtual firewall to control the flow of traffic between virtual machines (VMs) and subnet
-
-**Rules & Priorities:**
-* NSG rules can either **allow or deny** traffic based on the defined criteria.
-* Priority determines rule evaluation order: **lower numerical values have higher priority**. For instance, a rule with priority 100 is evaluated before a rule with priority 200.
-* The last rule (with the lowest priority) is the default deny rule, which blocks any traffic not explicitly allowed by earlier rules.
-* For example, if there's a rule allowing traffic from a specific source IP address on a certain port (with a high priority), and another rule denying all traffic on the same port (with a lower priority), the traffic would be allowed because the first rule takes precedence due to the higher priority number.
-
-**Association:**
-* A single NSG can be associated with multiple network interfaces (NICs) or subnets.
-* However, each NIC or subnet can only be associated with one NSG at a time.
-
-**The rules are based on the 5-tuple, which includes:**
-
-* **Protocol:** Specifies the protocol (TCP, UDP, or wildcard "*").
-* **Source IP address range:** The range of IP addresses from which traffic originates.
-* **Source port range:** The range of ports from which traffic originates.
-* **Destination IP address range:** The range of IP addresses where traffic is going.
-* **Destination port range:** The range of destination ports.
-
-
-![alt text](https://github.com/acmarpu/images/blob/main/image8.png)
+![alt text](https://github.com/acmarpu/images/blob/main/image17.png)
 
 
 ===========================================================================================
 
-# **Azure Firewall**
+# Private Endpoint
+A Private Endpoint is a crucial component of Azure's Private Link service. It is a network interface that uses a private IP address from your Azure Virtual Network (VNet) to connect securely and privately to a service powered by Azure Private Link. By enabling a Private Endpoint, you bring Azure services (or your own services hosted on Azure) into your VNet, ensuring that traffic between your VNet and the service remains entirely private and does not traverse the public internet.
+The service could be an Azure service such as:
 
-* Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. 
-* It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
+* **Services Accessible via Private Endpoint**
+Azure Private Link allows you to access many Azure services securely through Private Endpoints. These services can be Azure-managed services or even custom services you deploy in your own Azure environment. Some of the services commonly accessed through Private Endpoints include:
+* **Azure Storage:** Secure access to Blob Storage, File Shares, and other storage services via a private IP.
+* **Azure Cosmos DB:** Private access to Azure Cosmos DB resources, ensuring data is securely accessed without traversing the public internet.
+* **Azure SQL Database:** Secure, private access to Azure SQL Database instances, allowing traffic between your VNet and the SQL Database without exposing it to the public internet.
+* **Azure Key Vault:** Secure access to Azure Key Vault secrets and keys through a private endpoint, ensuring data protection and secure management of credentials.
+* **Azure Kubernetes Service (AKS):** Private access to services running in Azure Kubernetes Service (AKS), enabling secure communication between your VNet and the AKS resources.
+* **Other Azure Services:** Many other Azure services, such as Azure Synapse Analytics, Azure Database for MySQL/PostgreSQL, and Azure App Service, can also be accessed privately via Private Endpoints
 
-**Fully Managed, Cloud-Based Solution:**
-* Azure Firewall is a fully stateful firewall service, meaning it maintains the state of active connections and is able to track traffic flows.
-* It is entirely managed and runs as a cloud service, meaning Microsoft handles its maintenance, updates, and scaling.
-
-**Comparison with Network Security Groups (NSGs):**
-* NSGs (Network Security Groups) provide basic traffic filtering based on IP ranges and protocols and are implemented using the Virtual Filtering Platform (VFP).
-* Unlike NSGs, Azure Firewall is a more comprehensive solution with advanced features like stateful inspection, centralized management, and integration with other Azure services. NSGs are typically used in conjunction with Azure Firewall to further refine traffic control within subnets.
-
-
-===========================================================================================
-
-# Application Security Groups (ASGs):
-Application Security Groups helps to manage the security of the Azure Virtual Machines by grouping them according the applications that runs on them. It is a feature that allows the application-centric use of Network Security Groups.
-
-**Application-Centric Security:**
-* ASGs allow you to group VMs based on the applications they run, rather than managing security rules based on IP addresses. This approach simplifies security management, particularly in dynamic environments where VMs are frequently added or removed.
-* By grouping VMs based on their roles (e.g., web servers, database servers), security rules can be applied according to the application instead of managing complex IP-based access control lists (ACLs).
+![alt text](https://github.com/acmarpu/images/blob/main/image18.png)
 
 ===========================================================================================
 
-# Virtual Applications
+# Service Endpoints
+Azure Service Endpoints provide a way for private IP addresses in your Azure Virtual Network (VNet) to reach the endpoints of specific Azure services, such as Azure Storage, Azure SQL Database, and other PaaS services, without requiring a public IP address. By using Service Endpoints, traffic between your VNet and the Azure service stays within the Azure backbone network rather than going over the public internet. However, unlike Azure Private Link and Private Endpoints, Service Endpoints do not provide access to services through a private IP directly. They enable secure communication to the service via its public endpoint, but still use the private IP within your VNet for communication.
 
-* Azure network virtual appliance is used in the Azure application to enhance high availability. It is used as an advanced level of control over traffic flows, such as when building a demilitarized zone (DMZ) in the cloud.
-Many virtual appliances are available in the azure marketplace
+* **How Azure Service Endpoints Work**
+* **Public Service Access with Private IP:** Service Endpoints allow you to securely extend your VNet to specific Azure services. When you enable Service Endpoints for a service like Azure Storage or Azure SQL Database, your VNet’s private IP address is used to access the service’s public endpoint. The traffic still flows through the Azure backbone network.
 
-**license can be based on**
-*   Bring your own license*
-*   Hourly billing*
+**Service-specific:** Service Endpoints are available for certain Azure services, including Azure Storage, Azure SQL Database, Azure Cosmos DB, Azure Key Vault, and more. You need to explicitly enable Service Endpoints for each service on the VNet subnet.
 
-* Essentially a VM pre-configured software and configuration to perform a certain set of functionalities
-Common examples include firewall and load balancer
+* **No Need for Public IP:** With Service Endpoints, your VNet can access these services without exposing your VNet to the public internet via a public IP address.
 
-===========================================================================================
+**Service Endpoints:**
+* Access Azure services via public endpoints but over a private connection from within your VNet.
+* No private IP address for the service—communication happens through the public endpoint of the Azure service.
+* Use cases: Typically for services like Azure Storage or Azure SQL Database when private, secure communication is required but a direct private IP connection is not needed.
 
-# Network Security Appliances
+![alt text](https://github.com/acmarpu/images/blob/main/image19.png)
 
-Network security appliances are integral to maintaining the safety, confidentiality, and availability of your IT infrastructure. These appliances, which include both Microsoft and third-party products, offer comprehensive security and protection for various aspects of your network. Here’s an overview of the key features and offerings:
+**Private Link / Private Endpoints:**
+* Provides private IP access to Azure services, ensuring the entire communication path between your VNet and the service remains private, within the Azure backbone network.
+* Offers more granular control by assigning a private IP to the service and allowing it to be exposed to customers via private endpoints.
+* Use cases: Recommended for scenarios requiring strong data security, compliance, and private network connections, like accessing sensitive services or exposing your own services securely.
 
-* **Featuring:**
-* security and protection
-* Infrastructure security 
-* Web application 
-**Third-party security appliances available through the marketplace** 
-* Barracuda
-* Palo alto 
-* Sophos
-* And more
-**Pricing will vary** 
-* Most have try before you buy
-* cale as needed 
-**Creates a VM**
-* Sizing options availability will vary
+
 
 
 ===========================================================================================
-
 
 # Azure Load Balancer
 
 * Azure Load Balancer is a cloud-based service that distributes incoming traffic across a pool of virtual machines (VMs) to ensure high availability and resilience for applications. If a VM fails, the load balancer stops routing traffic to it, directing it to healthy VMs instead.
+
+![alt text](https://github.com/acmarpu/images/blob/main/image20.png)
 
 **Resilience and High Availability:**
 
@@ -533,10 +536,14 @@ Network security appliances are integral to maintaining the safety, confidential
 
 * Key Differences Between Basic and Standard SKUs:
 
+![alt text](https://github.com/acmarpu/images/blob/main/image21.png)
+
 ===========================================================================================
 
 # Azure Application Gateway
 * Azure Application Gateway is a web traffic load balancer that enables you to manage and optimize the distribution of traffic to your web applications. It operates at OSI Layer 7 (the Application Layer), which is more advanced than traditional load balancers that work at Layer 4 (Transport Layer). This allows Azure Application Gateway to provide more granular traffic management based on application-specific criteria like URLs, headers, and even cookies.
+
+![alt text](https://github.com/acmarpu/images/blob/main/image22.png)
 
 **Features** 
 * Autoscaling
@@ -573,32 +580,12 @@ Network security appliances are integral to maintaining the safety, confidential
 * Static VIP ensures that the Virtual IP (VIP) associated with the Application Gateway remains static, meaning it doesn’t change even after a restart. This is particularly important for DNS resolution and application stability, as it avoids the need for reconfiguring IP addresses or DNS records.
 * Static VIP provides a consistent and reliable endpoint for users accessing your application, improving resilience and simplifying network management.
 
-
-===========================================================================================
-# Azure Front Door 
-Azure Front Door is a global, scalable entry-point service designed to optimize the performance, security, and reliability of web applications and content. By leveraging the Microsoft global edge network, it enhances the delivery of applications to a global audience, providing robust solutions for both consumer and enterprise needs. Here is a summary of why you should consider using Azure Front Door, its key features, and how it fits into broader network security infrastructure:
-
-* **Why Use Azure Front Door?**
-* **Global Performance and Scalability:** It ensures low-latency and fast delivery of both dynamic and static content to users around the world by utilizing the Microsoft global edge network.
-* **High Availability and Reliability:** With features like global traffic routing and quick failover, Azure Front Door ensures that applications are always accessible with minimal downtime, even in the event of a service disruption.
-* **Simplified Infrastructure:** Front Door enables organizations to manage multiple web applications under a single service, making it easier to scale and maintain applications without the complexity of multiple point solutions.
-
-**Key Features of Azure Front Door:**
-* **Accelerated Application Performance:** It uses a split TCP-based anycast protocol to improve response times and reduce latency, enhancing the user experience globally.
-* **Intelligent Health Probe Monitoring:** Automatically monitors the health of backend resources, ensuring traffic is routed to healthy instances.
-* **URL Path-based Routing:** You can define routing rules based on the URL path, which helps in directing traffic to specific backend resources or applications.
-* **Multi-Site Hosting:** Front Door supports hosting multiple websites, enabling efficient infrastructure management for complex application needs.
-* **Cookie-based Session Affinity:** Ensures that user sessions are consistently routed to the same backend server for a smoother experience.
-* **SSL Offloading and Certificate Management:** Reduces the load on backend servers by handling SSL termination at the edge, improving both performance and security.
-* **Custom Domains and HTTPS Redirect:** Offers custom domain support and the ability to automatically redirect HTTP traffic to HTTPS, ensuring secure communications.
-* **Web Application Firewall (WAF):** Integrated security measures to protect against common web vulnerabilities and attacks. IPv6 and HTTP/2 Support: Ensures modern, scalable network protocols are supported for better performance and reach.
-
-
-
 ===========================================================================================
 # Azure Traffic Manager
 
 Azure Traffic Manager is a DNS-based global traffic load balancer that optimizes the distribution of traffic across services hosted in various Azure regions or external endpoints. It enables businesses to build high-availability, low-latency applications by intelligently routing requests based on specific policies.
+
+![alt text](https://github.com/acmarpu/images/blob/main/image23.png)
 
 * **DNS-based Traffic Load Balancer:**
 * Azure Traffic Manager uses DNS to route client requests to the most suitable service endpoint. When a client makes a request, Traffic Manager returns the DNS address of the optimal endpoint based on:
@@ -631,60 +618,27 @@ An endpoint in Traffic Manager is any internet-facing service. These endpoints c
 * **Priority Routing:** Directs all traffic to a primary endpoint (with the highest priority) and uses other endpoints as backup if the primary endpoint fails.
 * **Weighted Round-Robin Routing:** Distributes traffic across endpoints based on assigned weights. Endpoints with higher weights receive a greater share of the traffic.
 
-
 ===========================================================================================
+# Azure Front Door 
+Azure Front Door is a global, scalable entry-point service designed to optimize the performance, security, and reliability of web applications and content. By leveraging the Microsoft global edge network, it enhances the delivery of applications to a global audience, providing robust solutions for both consumer and enterprise needs. Here is a summary of why you should consider using Azure Front Door, its key features, and how it fits into broader network security infrastructure:
 
-# Azure DDOs standard protection
-* A malicious attempt to disrupt normal traffic by flooding a website with large amount of fake traffic.
-* **Azure DDoS (Distributed Denial of Service) Standard Protection** is designed to protect internet-facing services and applications hosted on Azure from large-scale, malicious traffic floods. It is a comprehensive solution that builds on the basic DDoS protection provided by Azure and offers advanced features for better protection and management.
-* Distributed denial of service (DDos) is a major threat to internet facing services 
-* Azure provides a basic large-scale DDos protection for all services but its tolerance is not configurable nor can it be monitored.
-* Azure DDos standard protection is enabled at a virtual network level based on user-defined policies that is applied to all public IPs associated with resource in the virtual network.
-* Real-time monitoring and telemetry available
-* Services basic and standard 
-* Instant on protection 
-* Traffic monitoring
-* Adaptive tuning
-* Attack analytics, metrics, and alerting  
+![alt text](https://github.com/acmarpu/images/blob/main/image24.png)
 
-===========================================================================================
+* **Why Use Azure Front Door?**
+* **Global Performance and Scalability:** It ensures low-latency and fast delivery of both dynamic and static content to users around the world by utilizing the Microsoft global edge network.
+* **High Availability and Reliability:** With features like global traffic routing and quick failover, Azure Front Door ensures that applications are always accessible with minimal downtime, even in the event of a service disruption.
+* **Simplified Infrastructure:** Front Door enables organizations to manage multiple web applications under a single service, making it easier to scale and maintain applications without the complexity of multiple point solutions.
 
-# Private Endpoint
-A Private Endpoint is a crucial component of Azure's Private Link service. It is a network interface that uses a private IP address from your Azure Virtual Network (VNet) to connect securely and privately to a service powered by Azure Private Link. By enabling a Private Endpoint, you bring Azure services (or your own services hosted on Azure) into your VNet, ensuring that traffic between your VNet and the service remains entirely private and does not traverse the public internet.
-The service could be an Azure service such as:
+**Key Features of Azure Front Door:**
+* **Accelerated Application Performance:** It uses a split TCP-based anycast protocol to improve response times and reduce latency, enhancing the user experience globally.
+* **Intelligent Health Probe Monitoring:** Automatically monitors the health of backend resources, ensuring traffic is routed to healthy instances.
+* **URL Path-based Routing:** You can define routing rules based on the URL path, which helps in directing traffic to specific backend resources or applications.
+* **Multi-Site Hosting:** Front Door supports hosting multiple websites, enabling efficient infrastructure management for complex application needs.
+* **Cookie-based Session Affinity:** Ensures that user sessions are consistently routed to the same backend server for a smoother experience.
+* **SSL Offloading and Certificate Management:** Reduces the load on backend servers by handling SSL termination at the edge, improving both performance and security.
+* **Custom Domains and HTTPS Redirect:** Offers custom domain support and the ability to automatically redirect HTTP traffic to HTTPS, ensuring secure communications.
+* **Web Application Firewall (WAF):** Integrated security measures to protect against common web vulnerabilities and attacks. IPv6 and HTTP/2 Support: Ensures modern, scalable network protocols are supported for better performance and reach.
 
-* **Services Accessible via Private Endpoint**
-Azure Private Link allows you to access many Azure services securely through Private Endpoints. These services can be Azure-managed services or even custom services you deploy in your own Azure environment. Some of the services commonly accessed through Private Endpoints include:
-* **Azure Storage:** Secure access to Blob Storage, File Shares, and other storage services via a private IP.
-* **Azure Cosmos DB:** Private access to Azure Cosmos DB resources, ensuring data is securely accessed without traversing the public internet.
-* **Azure SQL Database:** Secure, private access to Azure SQL Database instances, allowing traffic between your VNet and the SQL Database without exposing it to the public internet.
-* **Azure Key Vault:** Secure access to Azure Key Vault secrets and keys through a private endpoint, ensuring data protection and secure management of credentials.
-* **Azure Kubernetes Service (AKS):** Private access to services running in Azure Kubernetes Service (AKS), enabling secure communication between your VNet and the AKS resources.
-* **Other Azure Services:** Many other Azure services, such as Azure Synapse Analytics, Azure Database for MySQL/PostgreSQL, and Azure App Service, can also be accessed privately via Private Endpoints
-
-
-===========================================================================================
-
-# Service Endpoints
-Azure Service Endpoints provide a way for private IP addresses in your Azure Virtual Network (VNet) to reach the endpoints of specific Azure services, such as Azure Storage, Azure SQL Database, and other PaaS services, without requiring a public IP address. By using Service Endpoints, traffic between your VNet and the Azure service stays within the Azure backbone network rather than going over the public internet. However, unlike Azure Private Link and Private Endpoints, Service Endpoints do not provide access to services through a private IP directly. They enable secure communication to the service via its public endpoint, but still use the private IP within your VNet for communication.
-
-* **How Azure Service Endpoints Work**
-* **Public Service Access with Private IP:** Service Endpoints allow you to securely extend your VNet to specific Azure services. When you enable Service Endpoints for a service like Azure Storage or Azure SQL Database, your VNet’s private IP address is used to access the service’s public endpoint. The traffic still flows through the Azure backbone network.
-
-**Service-specific:** Service Endpoints are available for certain Azure services, including Azure Storage, Azure SQL Database, Azure Cosmos DB, Azure Key Vault, and more. You need to explicitly enable Service Endpoints for each service on the VNet subnet.
-
-* **No Need for Public IP:** With Service Endpoints, your VNet can access these services without exposing your VNet to the public internet via a public IP address.
-
-**Service Endpoints:**
-* Access Azure services via public endpoints but over a private connection from within your VNet.
-* No private IP address for the service—communication happens through the public endpoint of the Azure service.
-* Use cases: Typically for services like Azure Storage or Azure SQL Database when private, secure communication is required but a direct private IP connection is not needed.
-
-
-**Private Link / Private Endpoints:**
-* Provides private IP access to Azure services, ensuring the entire communication path between your VNet and the service remains private, within the Azure backbone network.
-* Offers more granular control by assigning a private IP to the service and allowing it to be exposed to customers via private endpoints.
-* Use cases: Recommended for scenarios requiring strong data security, compliance, and private network connections, like accessing sensitive services or exposing your own services securely.
 
 ===========================================================================================
 
@@ -806,6 +760,78 @@ Application Insights collects telemetry data from your application to give a ful
 
 
 
+# Network Security Groups (NSG)
 
+![alt text](https://github.com/acmarpu/images/blob/main/image25.png)
+
+* NSGs are composed of a set of security rules.
+* Each rule defines whether inbound (incoming) or outbound traffic is allowed or denied.
+* NSGs play a key role in managing the security and traffic flow between VMs and subnets in cloud environments like Azure, acting as virtual firewalls.
+
+**Traffic Inspection:**
+* NSGs inspect incoming and outgoing traffic at the **network level.**
+* They work like a virtual firewall to control the flow of traffic between virtual machines (VMs) and subnet
+
+**Rules & Priorities:**
+* NSG rules can either **allow or deny** traffic based on the defined criteria.
+* Priority determines rule evaluation order: **lower numerical values have higher priority**. For instance, a rule with priority 100 is evaluated before a rule with priority 200.
+* The last rule (with the lowest priority) is the default deny rule, which blocks any traffic not explicitly allowed by earlier rules.
+* For example, if there's a rule allowing traffic from a specific source IP address on a certain port (with a high priority), and another rule denying all traffic on the same port (with a lower priority), the traffic would be allowed because the first rule takes precedence due to the higher priority number.
+
+**Association:**
+* A single NSG can be associated with multiple network interfaces (NICs) or subnets.
+* However, each NIC or subnet can only be associated with one NSG at a time.
+
+**The rules are based on the 5-tuple, which includes:**
+
+* **Protocol:** Specifies the protocol (TCP, UDP, or wildcard "*").
+* **Source IP address range:** The range of IP addresses from which traffic originates.
+* **Source port range:** The range of ports from which traffic originates.
+* **Destination IP address range:** The range of IP addresses where traffic is going.
+* **Destination port range:** The range of destination ports.
+
+
+![alt text](https://github.com/acmarpu/images/blob/main/image8.png)
+
+
+===========================================================================================
+
+# **Azure Firewall**
+
+* Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. 
+* It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
+
+**Fully Managed, Cloud-Based Solution:**
+* Azure Firewall is a fully stateful firewall service, meaning it maintains the state of active connections and is able to track traffic flows.
+* It is entirely managed and runs as a cloud service, meaning Microsoft handles its maintenance, updates, and scaling.
+
+**Comparison with Network Security Groups (NSGs):**
+* NSGs (Network Security Groups) provide basic traffic filtering based on IP ranges and protocols and are implemented using the Virtual Filtering Platform (VFP).
+* Unlike NSGs, Azure Firewall is a more comprehensive solution with advanced features like stateful inspection, centralized management, and integration with other Azure services. NSGs are typically used in conjunction with Azure Firewall to further refine traffic control within subnets.
+
+
+===========================================================================================
+
+# Application Security Groups (ASGs):
+Application Security Groups helps to manage the security of the Azure Virtual Machines by grouping them according the applications that runs on them. It is a feature that allows the application-centric use of Network Security Groups.
+
+**Application-Centric Security:**
+* ASGs allow you to group VMs based on the applications they run, rather than managing security rules based on IP addresses. This approach simplifies security management, particularly in dynamic environments where VMs are frequently added or removed.
+* By grouping VMs based on their roles (e.g., web servers, database servers), security rules can be applied according to the application instead of managing complex IP-based access control lists (ACLs).
+
+===========================================================================================
+
+# Azure DDOs standard protection
+* A malicious attempt to disrupt normal traffic by flooding a website with large amount of fake traffic.
+* **Azure DDoS (Distributed Denial of Service) Standard Protection** is designed to protect internet-facing services and applications hosted on Azure from large-scale, malicious traffic floods. It is a comprehensive solution that builds on the basic DDoS protection provided by Azure and offers advanced features for better protection and management.
+* Distributed denial of service (DDos) is a major threat to internet facing services 
+* Azure provides a basic large-scale DDos protection for all services but its tolerance is not configurable nor can it be monitored.
+* Azure DDos standard protection is enabled at a virtual network level based on user-defined policies that is applied to all public IPs associated with resource in the virtual network.
+* Real-time monitoring and telemetry available
+* Services basic and standard 
+* Instant on protection 
+* Traffic monitoring
+* Adaptive tuning
+* Attack analytics, metrics, and alerting  
 
 ===========================================================================================
