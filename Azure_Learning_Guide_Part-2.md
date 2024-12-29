@@ -4,10 +4,10 @@ Azure Networking is a set of cloud-based services and technologies offered by Mi
 
 **Use Cases for Azure Networking:**
 
-* Hybrid Cloud Networking: Connect on-premises datacentres to Azure using VPN, ExpressRoute, and VNet Peering.
-* High-Availability Applications: Use Azure Load Balancer, Application Gateway, and Traffic Manager to ensure high availability and optimal performance.
-* Secure Network Architecture: Build isolated environments using Network Security Groups (NSGs), Azure Firewall, and Private Link.
-* Global Applications: Use Azure CDN, Traffic Manager, and Application Gateway to deliver content and services globally.
+* **Hybrid Cloud Networking:** Connect on-premises datacentres to Azure using VPN, ExpressRoute, and VNet Peering.
+* **High-Availability Applications:** Use Azure Load Balancer, Application Gateway, and Traffic Manager to ensure high availability and optimal performance.
+* **Secure Network Architecture:** Build isolated environments using Network Security Groups (NSGs), Azure Firewall, and Private Link.
+* **Global Applications:** Use Azure CDN, Traffic Manager, and Application Gateway to deliver content and services globally.
 
 
 **Ingress Egress**
@@ -152,7 +152,7 @@ NSGs:  You can apply NSGs to subnets (or individual network interfaces) to contr
 * **Reserved for Azure DNS (x.x.x.2, x.x.x.3):** These IP addresses are reserved for Azure's internal DNS services, which allow the resources in the VNet to resolve domain names.
 * **Last IP address: (x.x.x.255)** is reserved as the broadcast address. It is used to send broadcast messages to all devices in the subnet (although, in Azure, broadcast traffic is typically restricted).
 
-* *Reserved IPs: 5 IPs (network address, default gateway, 2 Azure DNS addresses, and broadcast address).
+* *Reserved IPs: 5 IPs (network address, default gateway, 2 Azure DNS addresses, and broadcast address).*
 * *Usable IPs: 256 - 5 = 251 usable IP addresses.*
 
 **5.	Non-Overlapping IP Address Ranges**
@@ -175,6 +175,37 @@ NSGs:  You can apply NSGs to subnets (or individual network interfaces) to contr
 * Connectivity Vnets can be connected to each other, and even to your on-premises datacentre by using Site-to-Site VPN connection or Express route connection.  
 
 ![alt text](https://github.com/acmarpu/images/blob/main/image7.png)
+
+
+
+# Virtual Network Peering (VNet Peering)
+* Definition: VNet Peering allows connectivity between two virtual networks (VNets) in the same Azure region or across different regions. This enables resources in each VNet to communicate with each other using private IP addresses, as though they were part of the same network.
+
+**Key Points:**
+* **No Gateways Required:** Peering establishes direct connectivity using the Azure backbone network, without needing a VPN gateway or public internet.
+* **Low Cost:** The ingress and egress traffic between peered VNets incurs nominal costs, typically based on data transfer between regions.
+
+**Global VNet Peering**
+
+* This is an extension of VNet Peering, where you connect VNets across different Azure regions.
+* **Global Connectivity:** It enables network traffic between VNets in different geographic regions without needing to route traffic over the public internet.
+* **Regions:** The peering link between VNets can span multiple Azure regions, enabling geographically dispersed resources to communicate securely.
+* **Cost:** Data transfer charges for Global VNet Peering are typically higher than those for peering within the same region.
+
+**VNet Peering Across Different Subscriptions**
+* **Support for Different Subscriptions:** Azure allows VNet Peering even if the VNets are in different Azure subscriptions, as long as the user has the appropriate permissions for both subscriptions.
+* **Use Case:** This can be particularly useful in multi-tenant scenarios or where different departments or teams have separate Azure subscriptions but need to establish network communication.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
