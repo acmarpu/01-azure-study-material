@@ -125,7 +125,7 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 * When you create a VNet, you define a CIDR block (Classless Inter-Domain Routing) to allocate a range of private IP addresses for your network. This address space is used to assign IPs to your virtual machines, load balancers, and other resources in the VNet.
 * Azure supports up to 4096 IP addresses in a single VNet, though smaller subnets can be created within this range for better resource management.
 * It’s essential to plan the IP address space carefully to avoid conflicts with other VNets, on-premises networks, or other Azure services.
-===========================================================================================
+=========================================================================================
 # 5.Subnet
 
 * A subnet is a range of IP addresses within a VNet. You can divide a VNet into multiple subnets based on your design and network architecture.
@@ -302,6 +302,22 @@ Ultra Performance (9000 Mbps).
 * **Peering Considerations:** Communications occur through peering points, which may add latency compared to using other network peering options, so it's important to plan network architecture carefully.
 
 ===========================================================================================
+# Hub-Spoke Network Topology in Azure
+The Hub-Spoke topology in Azure is a popular architecture pattern used to efficiently organize and manage virtual networks (VNets) while ensuring proper isolation, security, and cost-effectiveness. In this architecture, the hub VNet acts as a central point of connectivity, typically connecting on-premises resources to the Azure cloud, while the spokes are individual VNets used to host workloads and applications that may or may not need direct communication with each other.
+
+**Hub VNet:**
+*	The hub is a central VNet in Azure that typically connects to your on-premises datacenter through ExpressRoute or VPN gateways.
+*	Shared services like DNS, network virtual appliances (NVAs), firewalls, NTP, and Active Directory Domain Services (AD DS) are often deployed in the hub.
+
+**Spoke VNets:**
+*	The spokes are individual VNets connected to the hub and are typically used to isolate workloads for different environments or applications.
+*	Spokes can be organized around different purposes, such as development, testing, production, or different business units, maintaining network isolation between them.
+*	They do not communicate directly with each other but can communicate with the hub for accessing shared services like DNS or NTP.
+
+**Cost Efficiency:**
+Centralizing shared services in the hub VNet reduces the need for redundant infrastructure in each spoke, which helps to lower costs. For example, centralized services like firewalls, DNS servers, and NTP servers can be shared by multiple workloads in the spokes. 
+
+===========================================================================================
 
 # Azure Private Link
 Azure Private Link is a service that enables secure, private connectivity to Azure services, resources, or your own services from within an Azure Virtual Network (VNet). It allows you to access services in Azure over a private IP address rather than the public internet, providing enhanced security and data privacy.
@@ -437,7 +453,7 @@ Network security appliances are integral to maintaining the safety, confidential
 * If a backend endpoint fails, the load balancer relies on health probes to detect failures and ensure traffic is directed only to healthy VMs.
 
 **Port Forwarding with Azure Load Balancer**
-•	Azure Load Balancer allows you to configure Port Forwarding through the use of Inbound NAT rules. This feature enables traffic to be forwarded from a specific port on a frontend IP address to a specific port on a backend instance, which is typically a virtual machine (VM) inside a virtual network.
+*	Azure Load Balancer allows you to configure Port Forwarding through the use of Inbound NAT rules. This feature enables traffic to be forwarded from a specific port on a frontend IP address to a specific port on a backend instance, which is typically a virtual machine (VM) inside a virtual network.
 
 *Inbound NAT Rule:*
 * When you create an inbound NAT rule, you're essentially mapping a port on the frontend IP to a port on the backend instance (a specific VM). This allows external traffic to reach the VM even if it's behind the Load Balancer.
@@ -448,7 +464,7 @@ Network security appliances are integral to maintaining the safety, confidential
 * The traffic is then forwarded to the appropriate backend VM on the specified port.
 
 *Hash-based Distribution:*
-•	Azure Load Balancer uses the same hash-based algorithm for inbound NAT rules as it does for regular load balancing. This ensures that traffic is consistently routed to the same backend instance based on the frontend IP and port.
+*	Azure Load Balancer uses the same hash-based algorithm for inbound NAT rules as it does for regular load balancing. This ensures that traffic is consistently routed to the same backend instance based on the frontend IP and port.
 
 **Automatic reconfiguration**
 * **Seamless Scaling:** When you scale your instances up or down (e.g., adding or removing VMs), Azure Load Balancer automatically adjusts its configuration without needing manual intervention.
@@ -523,3 +539,237 @@ Network security appliances are integral to maintaining the safety, confidential
 **Static VIP:**
 * Static VIP ensures that the Virtual IP (VIP) associated with the Application Gateway remains static, meaning it doesn’t change even after a restart. This is particularly important for DNS resolution and application stability, as it avoids the need for reconfiguring IP addresses or DNS records.
 * Static VIP provides a consistent and reliable endpoint for users accessing your application, improving resilience and simplifying network management.
+
+
+===========================================================================================
+# Azure Front Door 
+Azure Front Door is a global, scalable entry-point service designed to optimize the performance, security, and reliability of web applications and content. By leveraging the Microsoft global edge network, it enhances the delivery of applications to a global audience, providing robust solutions for both consumer and enterprise needs. Here is a summary of why you should consider using Azure Front Door, its key features, and how it fits into broader network security infrastructure:
+
+* **Why Use Azure Front Door?**
+* **Global Performance and Scalability:** It ensures low-latency and fast delivery of both dynamic and static content to users around the world by utilizing the Microsoft global edge network.
+* **High Availability and Reliability:** With features like global traffic routing and quick failover, Azure Front Door ensures that applications are always accessible with minimal downtime, even in the event of a service disruption.
+* **Simplified Infrastructure:** Front Door enables organizations to manage multiple web applications under a single service, making it easier to scale and maintain applications without the complexity of multiple point solutions.
+
+**Key Features of Azure Front Door:**
+* **Accelerated Application Performance:** It uses a split TCP-based anycast protocol to improve response times and reduce latency, enhancing the user experience globally.
+* **Intelligent Health Probe Monitoring:** Automatically monitors the health of backend resources, ensuring traffic is routed to healthy instances.
+* **URL Path-based Routing:** You can define routing rules based on the URL path, which helps in directing traffic to specific backend resources or applications.
+* **Multi-Site Hosting:** Front Door supports hosting multiple websites, enabling efficient infrastructure management for complex application needs.
+* **Cookie-based Session Affinity:** Ensures that user sessions are consistently routed to the same backend server for a smoother experience.
+* **SSL Offloading and Certificate Management:** Reduces the load on backend servers by handling SSL termination at the edge, improving both performance and security.
+* **Custom Domains and HTTPS Redirect:** Offers custom domain support and the ability to automatically redirect HTTP traffic to HTTPS, ensuring secure communications.
+* **Web Application Firewall (WAF):** Integrated security measures to protect against common web vulnerabilities and attacks. IPv6 and HTTP/2 Support: Ensures modern, scalable network protocols are supported for better performance and reach.
+
+
+
+===========================================================================================
+# Azure Traffic Manager
+
+Azure Traffic Manager is a DNS-based global traffic load balancer that optimizes the distribution of traffic across services hosted in various Azure regions or external endpoints. It enables businesses to build high-availability, low-latency applications by intelligently routing requests based on specific policies.
+
+* **DNS-based Traffic Load Balancer:**
+* Azure Traffic Manager uses DNS to route client requests to the most suitable service endpoint. When a client makes a request, Traffic Manager returns the DNS address of the optimal endpoint based on:
+
+- Traffic-routing method
+- Health of the endpoints
+
+* **Global Traffic Distribution:**
+* Traffic Manager enables global traffic distribution to services hosted across various Azure regions, ensuring optimized performance and high availability for users regardless of their geographic location.
+Endpoint Types:
+An endpoint in Traffic Manager is any internet-facing service. These endpoints can be:
+
+* **Azure Endpoints:** 
+* Services hosted within Azure.
+* These are Azure-hosted services, such as virtual machines, web apps, or cloud services.
+* DNS Resolution: Traffic Manager resolves DNS queries to the appropriate Azure-based endpoint.
+
+**External Endpoints:** 
+* Services hosted outside of Azure, such as on-premises or with other hosting providers (via IPv4/IPv6 addresses).
+* These endpoints point to services hosted outside of Azure, either on-premises or with other cloud providers.
+* Pv4/IPv6 Addresses: External endpoints use public IP addresses (IPv4 or IPv6) to point to services not hosted on Azure.
+
+**Nested Endpoints:** 
+* Combines multiple Traffic Manager profiles to create more flexible routing schemes, particularly for complex deployments.
+* Nested endpoints allow you to combine multiple Traffic Manager profiles into a more complex, flexible traffic-routing scheme.
+* This is particularly useful for large-scale deployments where you need to support sophisticated routing logic and failover models.
+
+**Traffic Routing Methods:**
+* **Performance Routing:** Routes client requests to the endpoint with the lowest latency, i.e., the closest endpoint in terms of performance.
+* **Priority Routing:** Directs all traffic to a primary endpoint (with the highest priority) and uses other endpoints as backup if the primary endpoint fails.
+* **Weighted Round-Robin Routing:** Distributes traffic across endpoints based on assigned weights. Endpoints with higher weights receive a greater share of the traffic.
+
+
+===========================================================================================
+
+# Azure DDOs standard protection
+* A malicious attempt to disrupt normal traffic by flooding a website with large amount of fake traffic.
+* **Azure DDoS (Distributed Denial of Service) Standard Protection** is designed to protect internet-facing services and applications hosted on Azure from large-scale, malicious traffic floods. It is a comprehensive solution that builds on the basic DDoS protection provided by Azure and offers advanced features for better protection and management.
+* Distributed denial of service (DDos) is a major threat to internet facing services 
+* Azure provides a basic large-scale DDos protection for all services but its tolerance is not configurable nor can it be monitored.
+* Azure DDos standard protection is enabled at a virtual network level based on user-defined policies that is applied to all public IPs associated with resource in the virtual network.
+* Real-time monitoring and telemetry available
+* Services basic and standard 
+* Instant on protection 
+* Traffic monitoring
+* Adaptive tuning
+* Attack analytics, metrics, and alerting  
+
+===========================================================================================
+
+# Private Endpoint
+A Private Endpoint is a crucial component of Azure's Private Link service. It is a network interface that uses a private IP address from your Azure Virtual Network (VNet) to connect securely and privately to a service powered by Azure Private Link. By enabling a Private Endpoint, you bring Azure services (or your own services hosted on Azure) into your VNet, ensuring that traffic between your VNet and the service remains entirely private and does not traverse the public internet.
+The service could be an Azure service such as:
+
+* **Services Accessible via Private Endpoint**
+Azure Private Link allows you to access many Azure services securely through Private Endpoints. These services can be Azure-managed services or even custom services you deploy in your own Azure environment. Some of the services commonly accessed through Private Endpoints include:
+* **Azure Storage:** Secure access to Blob Storage, File Shares, and other storage services via a private IP.
+* **Azure Cosmos DB:** Private access to Azure Cosmos DB resources, ensuring data is securely accessed without traversing the public internet.
+* **Azure SQL Database:** Secure, private access to Azure SQL Database instances, allowing traffic between your VNet and the SQL Database without exposing it to the public internet.
+* **Azure Key Vault:** Secure access to Azure Key Vault secrets and keys through a private endpoint, ensuring data protection and secure management of credentials.
+* **Azure Kubernetes Service (AKS):** Private access to services running in Azure Kubernetes Service (AKS), enabling secure communication between your VNet and the AKS resources.
+* **Other Azure Services:** Many other Azure services, such as Azure Synapse Analytics, Azure Database for MySQL/PostgreSQL, and Azure App Service, can also be accessed privately via Private Endpoints
+
+
+===========================================================================================
+
+# Service Endpoints
+Azure Service Endpoints provide a way for private IP addresses in your Azure Virtual Network (VNet) to reach the endpoints of specific Azure services, such as Azure Storage, Azure SQL Database, and other PaaS services, without requiring a public IP address. By using Service Endpoints, traffic between your VNet and the Azure service stays within the Azure backbone network rather than going over the public internet. However, unlike Azure Private Link and Private Endpoints, Service Endpoints do not provide access to services through a private IP directly. They enable secure communication to the service via its public endpoint, but still use the private IP within your VNet for communication.
+
+* **How Azure Service Endpoints Work**
+* **Public Service Access with Private IP:** Service Endpoints allow you to securely extend your VNet to specific Azure services. When you enable Service Endpoints for a service like Azure Storage or Azure SQL Database, your VNet’s private IP address is used to access the service’s public endpoint. The traffic still flows through the Azure backbone network.
+
+**Service-specific:** Service Endpoints are available for certain Azure services, including Azure Storage, Azure SQL Database, Azure Cosmos DB, Azure Key Vault, and more. You need to explicitly enable Service Endpoints for each service on the VNet subnet.
+
+* **No Need for Public IP:** With Service Endpoints, your VNet can access these services without exposing your VNet to the public internet via a public IP address.
+
+**Service Endpoints:**
+* Access Azure services via public endpoints but over a private connection from within your VNet.
+* No private IP address for the service—communication happens through the public endpoint of the Azure service.
+* Use cases: Typically for services like Azure Storage or Azure SQL Database when private, secure communication is required but a direct private IP connection is not needed.
+
+
+**Private Link / Private Endpoints:**
+* Provides private IP access to Azure services, ensuring the entire communication path between your VNet and the service remains private, within the Azure backbone network.
+* Offers more granular control by assigning a private IP to the service and allowing it to be exposed to customers via private endpoints.
+* Use cases: Recommended for scenarios requiring strong data security, compliance, and private network connections, like accessing sensitive services or exposing your own services securely.
+
+
+===========================================================================================
+
+# Azure Monitor 
+*	A single source for the monitoring of Azure resource
+*	Provide insight into log metric alerts 
+*	Can create action groups which can be utilized as part of alerts to perform multiple actions centrally defined 
+
+# Azure Network Watcher**
+
+*	An instance is deployed to a region for services in that region
+*	Large number of capabilities
+*	Topology viewer 
+*	Packet capture (Via an agent installed into VM)
+*	IP flow verify and next hop determination 
+*	Connection monitor and troubleshoot 
+*	Security group viewer 
+*	NSG flow logging 
+*	Virtual network gateway and virtual network connection troubleshooting 
+*	Network use against subscription limits 
+*	Enable or disable log for resource for virtual network
+
+# Azure Monitoring 
+Azure Monitor is a comprehensive service offered by Microsoft that helps organizations collect, analyze, and act on telemetry data from both cloud and on-premises environments. It is an essential tool for ensuring the health, performance, and security of resources within your Azure environment. Azure Monitor provides valuable insights into your system, helping you identify issues quickly and improve system performance through data-driven decisions.
+
+- Metrics 
+- Logs 
+- Health 
+- Service events
+
+===========================================================================================
+# Log Analytics 
+*	Log Analytics is a powerful feature of Azure Monitor that provides centralized log collection, searching, and analysis across your Azure environment. It allows you to aggregate, analyze, and visualize logs from various Azure resources and on-premises systems, helping you gain deeper insights into the health, performance, and security of your infrastructure and applications.
+
+*	Log Analytics is built on the Azure Monitor Log Analytics Workspace, a central repository for collecting, storing, and querying log data. It uses Kusto Query Language (KQL) for querying logs, offering powerful capabilities for filtering, analyzing, and visualizing the data.
+
+*	Data in Log Analytics is stored in a Log Analytics Workspace, where you can configure retention policies to specify how long data is kept.
+
+
+# Azure Diagnostics 
+Azure Diagnostics is a feature that enables you to collect detailed diagnostic data from your applications and virtual machines (VMs) running in Azure. It helps you capture critical metrics, logs, performance counters, and diagnostic information, which are essential for debugging, troubleshooting, performance measurement, resource usage monitoring, traffic analysis, and capacity planning. By leveraging Azure Diagnostics, developers and operations teams can ensure the health and performance of their applications and infrastructure within Azure.
+
+Azure Diagnostics is typically used with Azure Virtual Machines (VMs), Web Apps, and other Azure resources to monitor the internal workings of applications and the operating system.
+
+**Collection of Diagnostic Data:**
+*	The collected data is stored in Azure Storage (typically Blob Storage) or streamed to Azure Monitor for further analysis and action.
+*	Azure Diagnostics enables the collection of several types of diagnostic data, including:
+*	**Application logs:** Logs generated by the application running in Azure, such as error messages, warnings, or custom logs.
+*	**System logs:** Logs from the underlying operating system, including system errors, service status, and hardware health data.
+*	**Performance counters:** Metrics about the system's CPU, memory usage, disk I/O, network usage, etc., that provide insights into how the application or VM is performing.
+*	**Network traffic data:** Detailed information about the network traffic, including inbound and outbound data, can help in troubleshooting network-related issues.
+*	**Event logs:** Operating system event logs, such as Windows Event logs, can provide useful information about system failures or performance bottlenecks.
+*	**Azure Diagnostics** helps you identify and troubleshoot issues by collecting logs and metrics that are critical for diagnosing problems in applications or system-level services.
+
+===========================================================================================
+
+# Azure Application Insights 
+Azure Application Insights is an Application Performance Management (APM) service that is part of Azure Monitor. It is designed for developers and DevOps professionals to help monitor the performance, availability, and usage of applications in real-time. By integrating with your application, Application Insights automatically detects performance anomalies, provides powerful analytics tools, and helps you diagnose issues, providing a comprehensive overview of your app's health and user interactions.
+
+**Application Insights** continuously monitors your live applications, automatically detecting anomalies in performance such as slow response times, server-side errors, or failed requests. It provides real-time alerts so that you can address performance issues immediately.
+
+**Telemetry Collection:**
+Application Insights collects telemetry data from your application to give a full view of its performance and user behavior. This data includes:
+*	**Request Data:** Information about HTTP requests, including response times and status codes.
+*	**Dependency Data:** Information about external calls your application makes (e.g., databases, REST APIs, or third-party services).
+*	**Exception Data:** Errors and exceptions generated by your application, helping you trace the root cause of issues.
+*	**Custom Events:** Custom telemetry that you can define to track business logic, user interactions, or other application-specific metrics.
+*	**Performance Counters:** CPU usage, memory consumption, and other system-level metrics for your application.
+
+===========================================================================================
+
+# CDN (Azure Content Delivery Network): 
+*	It is used for the delivery of the contents stored in the storage account. 
+*	We can use a content delivery network to reduce the latency of the delivery. 
+*	We will create a CDN endpoint near to the users to reduce the latency.
+
+*	**Azure Content Delivery Network (CDN)** is a distributed network of servers that accelerates the delivery of content, such as web pages, images, videos, and other static or dynamic content, to users across the globe. The main purpose of Azure CDN is to reduce latency, improve user experience, and ensure high availability by serving content from servers that are geographically closer to the end user.
+*	**Reduced Latency:**
+Azure CDN caches content at edge locations around the world. When a user requests content, the request is routed to the nearest CDN server, reducing the time it takes to fetch the content.
+*	**Improved Performance:**
+By serving content from the edge server closest to the user, Azure CDN reduces the load on the origin server, which results in improved overall application performance
+*	**Global Reach:**
+Azure CDN provides a global network of edge locations to ensure that users from any region can access content with minimal latency. By creating a CDN endpoint near to the users, content delivery is accelerated regardless of the user's location.
+*	**Scalability:**
+Azure CDN automatically scales to meet the demands of users. As traffic increases, the CDN adjusts its resources to handle the increased load without requiring manual intervention.
+*	**Cost Savings:**
+By caching content at edge locations, Azure CDN reduces the number of requests made to the origin server, which can lower the load on the server and reduce the associated data transfer costs.
+*	**Security:**
+Azure CDN can work with HTTPS to encrypt content during transit, providing secure delivery of content. It also offers protection against DDoS (Distributed Denial-of-Service) attacks by mitigating traffic spikes and redirecting requests to healthy servers.
+*	**Media and Video Streaming:**
+For websites or applications delivering videos or high-resolution images, Azure CDN helps provide fast loading times and high-quality streaming experiences, regardless of the user's geographic location.
+
+
+*	**Azure CDN Pricing**
+
+Azure CDN pricing is based on:
+
+* **Data Transfer:** Charges for data transferred from the CDN to the users.
+* **Requests:** Charges for the number of requests made to the CDN (e.g., GET, POST, etc.).
+* **Geographical Location:** Pricing may vary depending on the region from which the content is served and the network's edge locations.
+* **Caching Options:** Some CDN services offer custom caching rules and the option to control how long content is cached at the edge location.
+
+*	**CDN Types in Azure**
+
+Azure provides three types of CDN offerings:
+
+**Standard Microsoft CDN:**
+
+A Microsoft-backed CDN service that uses the global edge network of Microsoft’s data centers.
+**Standard Akamai CDN:**
+
+A CDN service backed by Akamai, one of the largest and most established CDN providers globally. It is ideal for users looking for more advanced features and global coverage.
+**Standard Verizon CDN:**
+
+A CDN service backed by Verizon's edge network, offering optimized performance and reliability across their network.
+
+
+
+
+===========================================================================================
