@@ -18,8 +18,8 @@ Azure storage provides storage that is highly available, secure, durable, scalab
 *	May not have the latest features or pricing optimizations.
 *	Limitations: Does not support cool and archive storage tiers
 
-**Azure Storage Pricing Model*
-Azure Storage uses a pricing model based on multiple factors, such as storage tier, data access frequency, and geo-replication configuration.
+**Azure Storage Pricing Model**
+* Azure Storage uses a pricing model based on multiple factors, such as storage tier, data access frequency, and geo-replication configuration.
 
 **1. Storage Costs**
 *Tier-Based Pricing:*
@@ -42,6 +42,7 @@ Azure Storage uses a pricing model based on multiple factors, such as storage ti
 
 
 **Azure Storage: Security Features**
+
 Azure Storage provides a range of security capabilities to ensure that your data remains secure, both at rest and in transit. Below are the key security features available for Azure Storage:
 
 * **1. Role-Based Access Control (RBAC) and Azure Active Directory (AAD) Integration**
@@ -53,7 +54,7 @@ Client-Side Encryption: Azure Storage supports client-side encryption, where dat
 HTTPS: Data can be secured in transit between the application and Azure using HTTPS, ensuring that data transferred over the network is encrypted during transmission.
 SMB 3.0: When using Azure Files, SMB 3.0 (Server Message Block) provides encrypted communication for file shares. This protocol offers encryption and integrity for data in transit, ensuring secure file access.
 
-* **vv3. Storage Service Encryption (SSE)**
+* **3. Storage Service Encryption (SSE)**
 SSE is a built-in encryption mechanism for data at rest in Azure Storage. Data is automatically encrypted when it is written to the storage account and remains encrypted while stored in Azure.
 Server-Side Encryption (SSE): This encryption is managed by Azure, and it occurs automatically when data is stored in the platform. Users do not need to manually configure this.
 Encryption keys used by SSE can be managed by Microsoft (default) or by the user through Azure Key Vault for additional control over encryption key management.
@@ -74,30 +75,30 @@ This is useful for scenarios where you want to grant external applications or us
 Azure Disks are an essential component in managing storage for virtual machines (VMs) within Microsoft Azure. Below is a breakdown of the key concepts mentioned:
 
 **Key Concepts of Azure Disks:**
-* **1.	Data Disks:**
+**1.Data Disks:**
 *	Data disks are used for storing application data, logs, or other information that needs to persist beyond the VM's lifespan.
 *	Each data disk is represented as a Virtual Hard Disk (VHD), which can be attached to a virtual machine.
 *	Capacity: A standard data disk has a maximum capacity of 4,095 GB. However, with managed disks, the maximum capacity is significantly larger at 32,767 GiB.
 *	The storage type (e.g., SSD or HDD) you can use for data disks depends on the VM size and the specific storage account configuration.
 
-* **2.	Managed vs. Unmanaged Disks:**
+**2.Managed vs. Unmanaged Disks:**
 *	Managed disks are Azure-managed resources, where Azure handles the storage management, including replication and availability. These disks are typically recommended for simplicity and reliability.
 *	Unmanaged disks are VHDs stored in your Azure storage account, where you need to manage aspects like replication, availability, and redundancy yourself.
 
-* **3.	Operating System (OS) Disk:**
+**3.Operating System (OS) Disk:**
 *	When you create a virtual machine (VM) from an image, Azure automatically creates an operating system disk for the VM.
 *	If the image you use for creating the VM includes predefined data disks, those data disks are also created alongside the OS disk.
 *	Otherwise, data disks can be added to the VM after creation.
 
-* **4.	Attaching Data Disks:**
+**4.Attaching Data Disks:**
 *	Data disks can be attached to a VM at any time after the VM is created.
 *	You can attach an existing VHD, either from your storage account or a custom VHD you've uploaded, or you can create a new empty VHD that Azure will generate for you.
 *	When a data disk is attached to a VM, Azure places a lease on the VHD file to prevent it from being deleted or modified while still in use by the VM.
 
-* **5.	Virtual Machine (VM) Size and Disk Limitations:**
+**5.Virtual Machine (VM) Size and Disk Limitations:**
 *	The size of the VM (e.g., Standard DS1, Standard D4, etc.) dictates how many data disks you can attach. Larger VMs can support more data disks and offer better performance for heavy workloads.
 
-* **6.	SCSI Drives and Disk Labeling:**
+**6.SCSI Drives and Disk Labeling:**
 *	Data disks are registered as SCSI drives (Small Computer System Interface), and you can assign a letter to each data disk (such as D:, E:, etc.) to easily reference and manage them within the VM’s operating system.
 
 
@@ -122,24 +123,24 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 * **Azure Storage: Tiers**
 Azure Storage offers different storage tiers designed to optimize cost and performance based on how frequently data is accessed. Here's a breakdown of the available tiers and their specific use cases:
 
-* **1. Premium Storage (Preview)**
+**1. Premium Storage (Preview)**
 *	Use Case: Premium storage is designed for workloads that require high-performance storage. It is typically used for applications that need low-latency and high-throughput performance, such as databases or transactional workloads.
 *	Performance: Provides high-performance hardware (based on SSDs) to support demanding workloads.
 *	Access Frequency: Best suited for frequently accessed data that needs fast read/write operations.
 *	Status: Currently in preview, meaning it might still be evolving or unavailable in some regions.
 
-* **2. Hot Storage**
+**2. Hot Storage**
 *	Use Case: Hot storage is optimized for storing data that is accessed frequently or needs to be readily available for use. Common examples include data used in applications, websites, and active data processing.
 *	Performance: Offers lower latency for read/write operations and is ideal for scenarios where performance is a key requirement.
 *	Access Frequency: Best for frequent access scenarios, where data needs to be accessed regularly.
 *	Cost: The cost of storage in the hot tier is higher compared to cool and archive storage due to its optimized performance for frequent access.
 
-* **3. Cool Storage**
+**3. Cool Storage**
 *	Use Case: Cool storage is designed for data that is infrequently accessed but still needs to be available for occasional use. This is suitable for data that you don’t access often but still want to retain for compliance, backup, or archival purposes.
 *	Access Frequency: This tier is best for data that is infrequently accessed and intended for storage for at least 30 days.
 *	Cost: Cool storage is more cost-effective than hot storage, offering lower prices in exchange for slower access times and less frequent use. However, there are retrieval costs and higher write operations costs.
 
-* **4. Archive Storage**
+**4. Archive Storage**
 *	Use Case: Archive storage is optimized for long-term storage of data that is rarely accessed, such as historical data, old backups, or compliance-related data that must be retained for extended periods.
 *	Access Frequency: Archive is best suited for data that is rarely accessed and stored for a minimum of 180 days.
 *	Performance: This tier offers high latency and is designed for scenarios where access to data can take hours or even days, making it unsuitable for real-time or frequent data retrieval.
@@ -164,10 +165,11 @@ Here is a detailed breakdown of the different Azure storage replication types:
 *	Suitable for scenarios where data is not mission-critical or where geographic redundancy is not required.
 *	Often used for non-critical data storage or development/testing environments.
 
-*Zone Redundant Storage (ZRS)*
+**Zone Redundant Storage (ZRS)**
 *	ZRS replicates your data across three Azure Availability Zones within a single region. Each availability zone is a separate data center with independent power, networking, and cooling.
 *	ZRS ensures that data is protected not just from disk failures, but also from hardware failures in individual data centers. This provides higher resiliency and availability.
-Key Features:
+
+*Key Features:*
 *	Availability: Offers higher resiliency and availability compared to LRS because it replicates data across multiple data centers in the same region.
 *	Cost: Higher cost than LRS due to the increased resilience.
 *	Protection: More robust against data center outages but still does not provide cross-region redundancy.
@@ -186,7 +188,7 @@ Key Features:
 *	Cost: Higher cost than LRS or ZRS due to the cross-region replication.
 *	Protection: Offers resilience against regional failures (e.g., data center or region-wide outages).
 
-Use Cases:
+*Use Cases:*
 *	Best suited for critical applications where downtime is not acceptable, such as financial transactions or healthcare data.
 *	Used in disaster recovery scenarios where data needs to be available even in the case of regional failures.
 
@@ -209,11 +211,13 @@ Use Cases:
 *	Object Replication is a feature available for Block Blob storage that allows you to replicate data between two storage accounts, either in the same or different regions.
 *	You define a source account and a destination account. Azure replicates the data in the background, ensuring that the blobs in the source account are copied to the destination account.
 *	Object replication is used only for Block Blobs, not for other types of blobs like Page Blobs or Append Blobs.
-Key Features:
+
+*Key Features:*
 *	Granular Replication: Replicates only block blobs between source and target accounts, making it ideal for scenarios where you need to copy specific data (e.g., media files, backups).
 *	Consistency: Supports different consistency models, allowing you to choose whether replication is done asynchronously or synchronously based on your use case.
 *	Cross-region: Allows replication across regions, offering additional redundancy in case of regional outages.
-Use Cases:
+
+*Use Cases:*
 *	Ideal for applications that require cross-region replication of block blob data (e.g., media file distribution, large-scale backup solutions).
 *	Suitable for disaster recovery or backup strategies where replicating block blob data across regions is important.
 
