@@ -12,6 +12,9 @@ https://github.com/acmarpu/01-Azure-Document/blob/main/Azure_Learning_Guide_Part
 https://github.com/acmarpu/01-Azure-Document/blob/main/Azure_Learning_Guide_Part-2.md
 
 
+**Azure_Storage.md [ Azure Storage]**
+
+https://github.com/acmarpu/01-Azure-Document/blob/main/Azure_Storage.md
 
 
 

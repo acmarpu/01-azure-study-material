@@ -11,14 +11,14 @@
 * **Fault domain:** Set of physical servers connected to same power source and network source
 ![alt text](https://github.com/acmarpu/images/blob/main/image7.png)
 * **Update domain:** set of physical servers running win2012 Hyper-V where MS will do patch management or firmware upgradations at once 
-![alt text](https://github.com/acmarpu/images/blob/main/image8.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image8.png)
 
 ===========================================================================================
 
 # Availability Zone
 * an Availability Zone (AZ) is a physically separate data center within an Azure region, designed to provide high availability and resiliency for applications and services. Each Availability Zone is equipped with its own independent power supply, network infrastructure, and cooling systems, ensuring that they can continue to function even if one zone experiences a failure (e.g., power outage, hardware failure).
 
-![alt text](https://github.com/acmarpu/images/blob/main/image9.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image9.png)
 ===========================================================================================
 
 # Auto scaling(VMSS)
@@ -246,7 +246,7 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 * **Security** traffic entering and existing the virtual machines and PaaS role instance in a Vnet can be controlling use Network Security Group
 * **Connectivity** Vnets can be connected to each other, and even to your on-premises datacentre by using Site-to-Site VPN connection or Express route connection.  
 
-![alt text](https://github.com/acmarpu/images/blob/main/image10.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image10.png)
 
 ===========================================================================================
 
@@ -272,7 +272,7 @@ An Azure Virtual Network (VNet) is a representation of your own network in the c
 
 * **Use Case:** This can be particularly useful in multi-tenant scenarios or where different departments or teams have separate Azure subscriptions but need to establish network communication.
 
-![alt text](https://github.com/acmarpu/images/blob/main/image11.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image11.png)
 
 **Routing between Azure and on-premises**
 * Must use unique IP address ranges: It is essential that the IP address ranges for on-premises networks and Azure Virtual Networks (VNets) are unique.
@@ -308,7 +308,7 @@ Connects with azure validated devices
 * Maximum throughput: 1.25 Gbps.
 * Supports up to 30 tunnels.
 
-![alt text](https://github.com/acmarpu/images/blob/main/image12.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image12.png)
 
 ===========================================================================================
 
@@ -320,7 +320,7 @@ Connects with azure validated devices
 * **Root certificate:** This is the certificate that is uploaded to Azure to authenticate the incoming connections.
 * **Client certificates:** These are installed on the computers or devices that will use the Point-to-Site VPN to connect to Azure. The client certificates prove the identity of the device when attempting to establish a secure connection.
 
-![alt text](https://github.com/acmarpu/images/blob/main/image13.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image13.png)
 ===========================================================================================
 
 # Site -to -Site VPN
@@ -341,7 +341,7 @@ Connects with azure validated devices
 * Authentication and Key Management Issues Challenge: Site-to-Site VPNs use shared pre-shared keys (PSK) or certificates for authentication between Azure and on-premises devices
 
 
-![alt text](https://github.com/acmarpu/images/blob/main/image14.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image14.png)
 
 ===========================================================================================
 
@@ -380,7 +380,7 @@ Ultra Performance (9000 Mbps).
 * **Peering Considerations:** Communications occur through peering points, which may add latency compared to using other network peering options, so it's important to plan network architecture carefully.
 
 
-![alt text](https://github.com/acmarpu/images/blob/main/image15.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image15.png)
 
 ===========================================================================================
 # Hub-Spoke Network Topology in Azure
@@ -398,7 +398,7 @@ The Hub-Spoke topology in Azure is a popular architecture pattern used to effici
 **Cost Efficiency:**
 * Centralizing shared services in the hub VNet reduces the need for redundant infrastructure in each spoke, which helps to lower costs. For example, centralized services like firewalls, DNS servers, and NTP servers can be shared by multiple workloads in the spokes. 
 
-![alt text](https://github.com/acmarpu/images/blob/main/image16.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image16.png)
 
 ===========================================================================================
 
@@ -409,7 +409,7 @@ Azure Private Link is a service that enables secure, private connectivity to Azu
 
 The Azure Private Link Service refers to your own service (hosted behind an Azure Standard Load Balancer) that is made accessible to consumers via Private Link. This enables customers to access your service securely from their own VNets, over a private connection, without going over the public internet.
 
-![alt text](https://github.com/acmarpu/images/blob/main/image17.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image17.png)
 
 
 ===========================================================================================
@@ -427,7 +427,7 @@ Azure Private Link allows you to access many Azure services securely through Pri
 * **Azure Kubernetes Service (AKS):** Private access to services running in Azure Kubernetes Service (AKS), enabling secure communication between your VNet and the AKS resources.
 * **Other Azure Services:** Many other Azure services, such as Azure Synapse Analytics, Azure Database for MySQL/PostgreSQL, and Azure App Service, can also be accessed privately via Private Endpoints
 
-![alt text](https://github.com/acmarpu/images/blob/main/image18.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image18.png)
 
 ===========================================================================================
 
@@ -446,7 +446,7 @@ Azure Service Endpoints provide a way for private IP addresses in your Azure Vir
 * No private IP address for the service—communication happens through the public endpoint of the Azure service.
 * Use cases: Typically for services like Azure Storage or Azure SQL Database when private, secure communication is required but a direct private IP connection is not needed.
 
-![alt text](https://github.com/acmarpu/images/blob/main/image19.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image19.png)
 
 **Private Link / Private Endpoints:**
 * Provides private IP access to Azure services, ensuring the entire communication path between your VNet and the service remains private, within the Azure backbone network.
@@ -462,7 +462,7 @@ Azure Service Endpoints provide a way for private IP addresses in your Azure Vir
 
 * Azure Load Balancer is a cloud-based service that distributes incoming traffic across a pool of virtual machines (VMs) to ensure high availability and resilience for applications. If a VM fails, the load balancer stops routing traffic to it, directing it to healthy VMs instead.
 
-![alt text](https://github.com/acmarpu/images/blob/main/image20.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image20.png)
 
 **Resilience and High Availability:**
 
@@ -536,14 +536,14 @@ Azure Service Endpoints provide a way for private IP addresses in your Azure Vir
 
 * Key Differences Between Basic and Standard SKUs:
 
-![alt text](https://github.com/acmarpu/images/blob/main/image21.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image21.png)
 
 ===========================================================================================
 
 # Azure Application Gateway
 * Azure Application Gateway is a web traffic load balancer that enables you to manage and optimize the distribution of traffic to your web applications. It operates at OSI Layer 7 (the Application Layer), which is more advanced than traditional load balancers that work at Layer 4 (Transport Layer). This allows Azure Application Gateway to provide more granular traffic management based on application-specific criteria like URLs, headers, and even cookies.
 
-![alt text](https://github.com/acmarpu/images/blob/main/image22.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image22.png)
 
 **Features** 
 * Autoscaling
@@ -585,7 +585,7 @@ Azure Service Endpoints provide a way for private IP addresses in your Azure Vir
 
 Azure Traffic Manager is a DNS-based global traffic load balancer that optimizes the distribution of traffic across services hosted in various Azure regions or external endpoints. It enables businesses to build high-availability, low-latency applications by intelligently routing requests based on specific policies.
 
-![alt text](https://github.com/acmarpu/images/blob/main/image23.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image23.png)
 
 * **DNS-based Traffic Load Balancer:**
 * Azure Traffic Manager uses DNS to route client requests to the most suitable service endpoint. When a client makes a request, Traffic Manager returns the DNS address of the optimal endpoint based on:
@@ -622,7 +622,7 @@ An endpoint in Traffic Manager is any internet-facing service. These endpoints c
 # Azure Front Door 
 Azure Front Door is a global, scalable entry-point service designed to optimize the performance, security, and reliability of web applications and content. By leveraging the Microsoft global edge network, it enhances the delivery of applications to a global audience, providing robust solutions for both consumer and enterprise needs. Here is a summary of why you should consider using Azure Front Door, its key features, and how it fits into broader network security infrastructure:
 
-![alt text](https://github.com/acmarpu/images/blob/main/image24.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image24.png)
 
 * **Why Use Azure Front Door?**
 * **Global Performance and Scalability:** It ensures low-latency and fast delivery of both dynamic and static content to users around the world by utilizing the Microsoft global edge network.
@@ -762,7 +762,7 @@ Application Insights collects telemetry data from your application to give a ful
 
 # Network Security Groups (NSG)
 
-![alt text](https://github.com/acmarpu/images/blob/main/image25.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image25.png)
 
 * NSGs are composed of a set of security rules.
 * Each rule defines whether inbound (incoming) or outbound traffic is allowed or denied.
@@ -791,7 +791,7 @@ Application Insights collects telemetry data from your application to give a ful
 * **Destination port range:** The range of destination ports.
 
 
-![alt text](https://github.com/acmarpu/images/blob/main/image8.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image8.png)
 
 
 ===========================================================================================

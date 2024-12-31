@@ -70,7 +70,6 @@ A SAS token is generated with specific permissions (read, write, delete, etc.) a
 This is useful for scenarios where you want to grant external applications or users access to storage resources without exposing your account keys or providing broad permissions.
 
 
-
 # Azure Disks
 Azure Disks are an essential component in managing storage for virtual machines (VMs) within Microsoft Azure. Below is a breakdown of the key concepts mentioned:
 
@@ -237,7 +236,7 @@ Here is a detailed breakdown of the different Azure storage replication types:
 
 *Accessing: https://<storage_account_name>.blob.core.windows.net/<container_name>*
 
-**Azure File System (Azure Files)**
+# **Azure File System (Azure Files)**
 *What is Azure Files?*
 * Azure File Storage offers fully managed, cloud-based file shares that support the Server Message Block (SMB) protocol. It allows users to store files that can be accessed by cloud-based or on-premises applications, supporting common file system operations.
 
@@ -251,7 +250,7 @@ Here is a detailed breakdown of the different Azure storage replication types:
 *Accessing: https://<storage_account_name>.file.core.windows.net/<file_share_name>/<file_path>*
 
 
-**Azure Queue Storage**
+# **Azure Queue Storage**
 *What is Azure Queue Storage?*
 Azure Queue Storage is a service used for storing large numbers of messages that can be accessed from anywhere globally via authenticated HTTP or HTTPS requests. It is primarily used to implement messaging queues for building asynchronous workflows, decoupling components, and ensuring scalable, durable systems.
 
@@ -276,12 +275,13 @@ Use Cases for Azure Queue Storage:
 *Accessing: https://<storage_account_name>.queue.core.windows.net/<queue_name>*
 
 
-**Azure Table Storage**
+# **Azure Table Storage**
 *What is Azure Table Storage*
 
 * Azure Table Storage is a NoSQL key-value store used for storing structured data in the cloud. It provides a highly scalable and cost-effective solution for storing large amounts of semi-structured data, such as application logs, sensor data, or other key-value pairs.
 
 *Key Features of Azure Table Storage:*
+
 *	Schema-less: Table Storage is schema-less, allowing you to store different types of data with flexible structures.
 *	Entities: Data is organized in entities, which consist of a partition key and a row key. These keys make data retrieval very fast and efficient.
 *	Partition Key: A unique identifier for the partition.

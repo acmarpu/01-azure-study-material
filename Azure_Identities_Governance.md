@@ -84,7 +84,7 @@ The customer is responsible for things like configuring services correctly, mana
 *Azure's Responsibility:* 
 Azure handles the infrastructure level, ensuring the platform and its services (network, compute, storage, etc.) are operational and secure.
 
-![alt text](https://github.com/acmarpu/images/blob/main/image1.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image1.png)
 
 
 
@@ -99,7 +99,7 @@ Azure handles the infrastructure level, ensuring the platform and its services (
 * Azure Policy allows you to create, assign, and manage policy definitions to enforce rules for your resources. This feature keeps those resources in compliance with your corporate standards. 
 * Azure Cost Management allows you to track cloud usage and expenditures for your Azure resources and other cloud providers.
 
-![alt text](https://github.com/acmarpu/images/blob/main/image2.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image2.png)
 
 
 ===========================================================================================
@@ -263,7 +263,7 @@ Resource groups can include VMs, storage accounts, virtual networks, web apps, d
 * Using tags for metadata, documentation, automation, cost, and billing 
 * Creating and managing roles and assigning them permissions at the resource group or subscription level
 
-![alt text](https://github.com/acmarpu/images/blob/main/image3.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image3.png)
 
 
 
@@ -294,7 +294,7 @@ A security principal is an object that represents a user, group, service princip
 Role-based access control can be used to assign permissions to:
 
  
-![alt text](https://github.com/acmarpu/images/blob/main/image4.png)
+![alt text](https://github.com/acmarpu/images/Azure/blob/main/image4.png)
 
 
 
@@ -310,7 +310,7 @@ The scope of role assignment can be:
 - Single resource
 - Management group level
 
- ![alt text](https://github.com/acmarpu/images/blob/main/image5.png)
+ ![alt text](https://github.com/acmarpu/images/Azure/blob/main/image5.png)
 
 
 
@@ -389,7 +389,7 @@ You can apply Azure RBAC to manage who has access to the management group, ensur
 **Scalability:**
  Azure Management Groups are scalable, allowing organizations to manage tens, hundreds, or even thousands of subscriptions in a structured and efficient way
 
- ![alt text](https://github.com/acmarpu/images/blob/main/image6.png)
+ ![alt text](https://github.com/acmarpu/images/Azure/blob/main/image6.png)
 
 
 
