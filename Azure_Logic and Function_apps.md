@@ -165,3 +165,94 @@ Managed Connectors:
 *1.	Test the Logic App:*
 *	To test the Logic App, send an email with the subject containing #Support to the specified email address.
 *	If the subject contains "#Support", the workflow will execute and post a message to the Support queue in Azure Storage.
+
+
+
+# Azure Functions?
+Azure Functions is a serverless compute service provided by Microsoft Azure that allows you to run small, event-driven pieces of code (called "functions") without worrying about the underlying infrastructure. You can write and deploy code that automatically responds to various triggers such as HTTP requests, timer-based schedules, or events like changes in a database or file system.
+In a serverless model, you don't have to worry about provisioning or managing servers. Azure Functions takes care of scaling your code based on demand, and you only pay for the actual execution time.
+Key Features of Azure Functions:
+
+**1.	Serverless Applications:**
+*	Azure Functions allows you to focus on writing code without having to manage or provision servers. This makes it ideal for small, event-driven tasks and microservices.
+
+**2.	Choice of Programming Language:*
+*	Azure Functions supports a variety of languages, allowing developers to work with the language they are most comfortable with or best suits the application:
+*	C#
+*	Java
+*	JavaScript
+*	Python
+*	PowerShell
+
+**3.	Pay-Per-Use Pricing Model:**
+*	You are only charged for the execution time and resources consumed by your function, which means cost efficiency, especially for low-traffic scenarios. There's no need to pay for idle time.
+
+**4.	Bring Your Own Dependencies:**
+*	You can bring and use external libraries or dependencies that are required for your function. Azure Functions supports custom libraries and packages for the languages it supports, allowing greater flexibility.
+
+**5.	Integrated Security:**
+*	Azure Functions integrates easily with Azure Active Directory (AAD), Role-Based Access Control (RBAC), and other security mechanisms to secure the functions and manage authentication.
+
+**6.	Flexible Development:**
+*	You can develop and test functions locally, then deploy them to Azure with tools like Visual Studio, Visual Studio Code, or Azure CLI. Azure Functions also supports continuous integration and delivery (CI/CD).
+
+# What Can You Do with Azure Functions?
+Azure Functions can be used for a wide variety of tasks, especially where event-driven architecture is useful. Some common use cases include:
+
+**1.	Processing Bulk Data:**
+*	Azure Functions can be used to process large volumes of data, such as from logs, files, or streams of data. This is useful for scenarios like data transformations or batch processing.
+
+**2.	Integrating Systems:**
+*	You can integrate with other systems by creating functions that trigger based on events in other services. For example, you might trigger a function when a new message is placed on a queue or when an event occurs in another application.
+
+**3.	Working with IoT:**
+*	Azure Functions can interact with IoT devices, processing data from sensors or devices and responding to changes. This is particularly useful for applications like real-time monitoring or automating device interactions.
+
+**4.	Building APIs and Microservices:**
+*	Azure Functions is well-suited for creating small, stateless APIs or microservices that respond to HTTP requests. This is ideal for building RESTful APIs that scale automatically as demand increases.
+
+**Triggers for Azure Functions**
+Azure Functions can be triggered by a wide variety of events. Some common triggers include:
+* **1.	HTTP Requests:**
+*	Functions can be triggered by HTTP requests, making them ideal for creating REST APIs, webhooks, or other web-based services.
+
+* **2.	Schedule Timer:**
+*	Functions can be scheduled to run at specific intervals using time-based triggers. For example, you can set up a function to run daily, weekly, or at a custom time interval.
+
+* **3.	Document Changes in Azure Cosmos DB:**
+*	Azure Functions can be triggered when documents are added or modified in Azure Cosmos DB, enabling real-time data processing and synchronization across systems.
+
+* **4.	Queue Messages (Azure Storage Queues):**
+*	Functions can be triggered by messages placed in Azure Storage Queues, making them ideal for event-driven architectures where tasks are queued and processed asynchronously.
+
+* **5.	Event Grid Events:**
+*	You can trigger functions based on events published to Azure Event Grid, which allows integration with various Azure services and third-party systems for real-time event-driven architecture.
+
+* **6.	Azure Blob Storage Events:**
+*	Functions can also be triggered by file uploads or changes in Azure Blob Storage. This can be useful for scenarios like image processing, file conversion, or other storage-related operations.
+
+**Azure Function Code Components**
+
+An Azure Function typically consists of two main components:
+
+* **1.	Your Code:** The actual code you write for the Azure Function, which can be in various programming languages such as C#, Python, JavaScript, PowerShell, etc.
+
+* **2.	Function.json:** This is a configuration file that contains the details about the function, including triggers, bindings, and other configuration settings necessary for the function to run correctly in the Azure environment.
+
+
+**Understanding the Function.json File**
+
+The function.json file is a crucial component of an Azure Function. It holds configuration information required by the Azure Functions runtime to execute your code. Here’s an overview of how it works:
+
+* **1. Trigger:**
+*	The trigger defines how the function is invoked. Each function can have one and only one trigger. The trigger could be based on various events like an HTTP request, a scheduled timer, a message from a queue, or an event from a database or other system.
+*	For example, if you're using an HTTP trigger, the function.json will define that the function is triggered whenever an HTTP request is received.
+
+* **2. Bindings:**
+*	Bindings define how data is passed into or out of the function. There are two types of bindings:
+* Input Bindings: These allow you to pass data to the function. For instance, if you want your function to read from a queue, a storage blob, or a database, you use an input binding.
+* Output Bindings: These allow the function to send data out. For example, after processing data, you might write the result to a database or send a response via HTTP.
+A function can have multiple input and output bindings. These bindings eliminate the need for the developer to manually handle the connections to external systems or services, simplifying development.
+
+* **3. Configuration Details:**
+*	The function.json file also holds various configuration settings that control how the function is executed. This can include settings such as the name of the trigger, queue names, or connection strings for resources like Azure Blob Storage or Cosmos DB
