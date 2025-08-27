@@ -1,6 +1,6 @@
 # AZURE A LEARNING GUIDE
 
-# Why Cloud Computing
+## Why Cloud Computing
 * Ashoka had an idea to create a new social media website. While he was confident about building the website itself, he started worrying about how he would manage the underlying infrastructure. He wondered how to handle storage, maintain high-end servers for a smooth user experience, and ensure robust security. Hiring skilled resources and making a large capital investment for servers was also a concern. On day one, he would have to pay significant upfront costs, and even if the platform became successful, scaling resources quickly would be a challenge.
 
 * To get advice, Ashoka discussed his concerns with Angela. She recommended considering a cloud-based solution and explained the differences between on-premises infrastructure and cloud computing. 
@@ -39,6 +39,8 @@
 | **PaaS**              | Platform to build & run apps                | Azure App Service, Google App Engine |
 | **SaaS**              | Fully managed apps                          | Gmail, Microsoft 365                 |
 | **FaaS / Serverless** | Run code/functions without managing servers | AWS Lambda, Azure Functions          |
+
+
 
 
 
