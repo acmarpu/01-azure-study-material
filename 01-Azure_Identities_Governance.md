@@ -1,6 +1,6 @@
 # AZURE A LEARNING GUIDE
 
-# Why Cloud computing
+# Why Cloud Computing
 * Ashoka had an idea to create a new social media website. While he was confident about building the website itself, he started worrying about how he would manage the underlying infrastructure. He wondered how to handle storage, maintain high-end servers for a smooth user experience, and ensure robust security. Hiring skilled resources and making a large capital investment for servers was also a concern. On day one, he would have to pay significant upfront costs, and even if the platform became successful, scaling resources quickly would be a challenge.
 
 * To get advice, Ashoka discussed his concerns with Angela. She recommended considering a cloud-based solution and explained the differences between on-premises infrastructure and cloud computing. 
@@ -14,6 +14,32 @@
 | **Maintenance** | Requires dedicated IT staff           | Managed by cloud provider                  |
 | **Flexibility** | Hard to upgrade or expand             | Upgrade or expand with a single click      |
 | **Security**    | Managed internally, costly            | Provider-managed, often more robust        |
+
+
+
+
+
+                 Cloud Computing
+                        |
+      ---------------------------------------
+      |                  |                  |
+   Public Cloud       Private Cloud      Hybrid / Multi-Cloud
+      |                  |                  |
+  Shared resources    Dedicated infra     Mix of public & private
+  Cost-effective      High security      Flexible & scalable
+
+
+
+Cloud Service Models:
+
+| Model                 | What it Provides                            | Example                              |
+| --------------------- | ------------------------------------------- | ------------------------------------ |
+| **IaaS**              | Virtual servers, storage, networking        | AWS EC2, Azure VM                    |
+| **PaaS**              | Platform to build & run apps                | Azure App Service, Google App Engine |
+| **SaaS**              | Fully managed apps                          | Gmail, Microsoft 365                 |
+| **FaaS / Serverless** | Run code/functions without managing servers | AWS Lambda, Azure Functions          |
+
+
 
 
 **What is Azure?**
