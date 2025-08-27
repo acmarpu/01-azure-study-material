@@ -26,12 +26,12 @@
    Public Cloud       Private Cloud      Hybrid / Multi-Cloud
       |                  |                  |
   Shared resources    Dedicated infra     Mix of public & private
-  Cost-effective      High security      Flexible & scalable
+  Cost-effective      High security       Flexible & scalable
 
 
  ```
 
-Cloud Service Models:
+**Cloud Service Models:**
 
 | Model                 | What it Provides                            | Example                              |
 | --------------------- | ------------------------------------------- | ------------------------------------ |
