@@ -17,7 +17,7 @@
 
 
 
-
+ ```
 
                  Cloud Computing
                         |
@@ -29,6 +29,7 @@
   Cost-effective      High security      Flexible & scalable
 
 
+ ```
 
 Cloud Service Models:
 
